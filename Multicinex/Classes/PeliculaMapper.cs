@@ -23,7 +23,7 @@ namespace Multicinex.Classes
                 {
                     while (reader.Read())
                     {
-                        peliculasRegistradas.Add(new Pelicula(reader.GetString(0), reader.GetString(1), reader.GetInt32(3), reader.GetInt32(4), reader.GetString(5), reader.GetString(6), reader.GetString(7)));
+                        peliculasRegistradas.Add(new Pelicula(reader.GetString(0), reader.GetString(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetString(4), reader.GetString(5), reader.GetString(6)));
                     }
                 }
             }
@@ -71,19 +71,26 @@ namespace Multicinex.Classes
             return result > 0;
         }
 
-        /*
-        public static async Task<bool> EliminarCliente(string codigoPelicula)
+        
+        public static bool EliminarPelicula(string codigoPelicula)
         {
-            await using var connection = new SqlConnection(_connectionString);
+            using var connection = new SqlConnection(_connectionString);
             connection.Open();
-            await using SqlCommand command = connection.CreateCommand();
+            using SqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.Text;
-            command.CommandText = "DELETE FROM public.\"CLiente\" WHERE \"cc_Cliente\" = @CC_Cliente;";
-            command.Parameters.AddWithValue("@CC_Cliente", codigoPelicula);
-            var result = await command.ExecuteNonQueryAsync();
+            command.CommandText = "DELETE FROM Pelicula WHERE CODIGO_PELICULA = @Cod_Pelicula;";
+            command.Parameters.AddWithValue("@Cod_Pelicula", codigoPelicula);
+            var result = 0;
+            try
+            {
+                result = command.ExecuteNonQuery();
+            }catch(Exception ex)
+            {
+                ex.ToString();
+            }
             return result > 0;
         }
-        */
+        
 
     }
 }
