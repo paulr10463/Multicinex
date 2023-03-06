@@ -30,7 +30,7 @@ namespace Multicinex.Classes
             return peliculasRegistradas;
         }
 
-        public static void ingresarPelicula(Pelicula pelicula)
+        public static void IngresarPelicula(Pelicula pelicula)
         {
             // Conexión a BD
             using var connection = new SqlConnection(_connectionString);
@@ -78,8 +78,8 @@ namespace Multicinex.Classes
             connection.Open();
             using SqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.Text;
-            command.CommandText = "DELETE FROM Pelicula WHERE CODIGO_PELICULA = @Cod_Pelicula;";
-            command.Parameters.AddWithValue("@Cod_Pelicula", codigoPelicula);
+            command.CommandText = "DELETE FROM Pelicula WHERE codigo_pelicula = @codigo_pelicula;";
+            command.Parameters.AddWithValue("@codigo_pelicula", codigoPelicula);
             var result = 0;
             try
             {
