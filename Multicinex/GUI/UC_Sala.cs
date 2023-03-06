@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Multicinex.GUI
 {
-    public partial class Sala : UserControl
+    public partial class UC_Sala : UserControl
     {
-        public Sala()
+        public UC_Sala()
         {
             InitializeComponent();
         }

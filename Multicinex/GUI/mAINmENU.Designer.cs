@@ -30,18 +30,22 @@
         {
             this.siticoneTabControl1 = new Siticone.Desktop.UI.WinForms.SiticoneTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.pelicula1 = new Multicinex.GUI.Pelicula();
+            this.pelicula1 = new Multicinex.GUI.UC_Pelicula();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.funcion1 = new Multicinex.GUI.Funcion();
+            this.funcion1 = new Multicinex.GUI.UC_Funcion();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.sala1 = new Multicinex.GUI.Sala();
+            this.sala1 = new Multicinex.GUI.UC_Sala();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.sala2 = new Multicinex.GUI.Sala();
+            this.empleado1 = new Multicinex.GUI.UC_Empleado();
+            this.sala2 = new Multicinex.GUI.UC_Sala();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.uC_Boleto1 = new Multicinex.GUI.UC_Boleto();
             this.siticoneTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            this.tabPage5.SuspendLayout();
             this.SuspendLayout();
             // 
             // siticoneTabControl1
@@ -51,6 +55,7 @@
             this.siticoneTabControl1.Controls.Add(this.tabPage2);
             this.siticoneTabControl1.Controls.Add(this.tabPage3);
             this.siticoneTabControl1.Controls.Add(this.tabPage4);
+            this.siticoneTabControl1.Controls.Add(this.tabPage5);
             this.siticoneTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.siticoneTabControl1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.siticoneTabControl1.ItemSize = new System.Drawing.Size(180, 40);
@@ -135,6 +140,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.empleado1);
             this.tabPage4.Controls.Add(this.sala2);
             this.tabPage4.Location = new System.Drawing.Point(184, 4);
             this.tabPage4.Name = "tabPage4";
@@ -143,6 +149,15 @@
             this.tabPage4.Text = "Empleado";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // empleado1
+            // 
+            this.empleado1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.empleado1.Location = new System.Drawing.Point(0, 0);
+            this.empleado1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.empleado1.Name = "empleado1";
+            this.empleado1.Size = new System.Drawing.Size(1182, 726);
+            this.empleado1.TabIndex = 1;
+            // 
             // sala2
             // 
             this.sala2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -150,6 +165,26 @@
             this.sala2.Name = "sala2";
             this.sala2.Size = new System.Drawing.Size(1182, 726);
             this.sala2.TabIndex = 0;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.uC_Boleto1);
+            this.tabPage5.Location = new System.Drawing.Point(184, 4);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(1182, 726);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Boleto";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // uC_Boleto1
+            // 
+            this.uC_Boleto1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_Boleto1.Location = new System.Drawing.Point(3, 3);
+            this.uC_Boleto1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.uC_Boleto1.Name = "uC_Boleto1";
+            this.uC_Boleto1.Size = new System.Drawing.Size(1176, 720);
+            this.uC_Boleto1.TabIndex = 2;
             // 
             // Form1
             // 
@@ -165,6 +200,7 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
+            this.tabPage5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -176,9 +212,12 @@
         private TabPage tabPage2;
         private TabPage tabPage3;
         private TabPage tabPage4;
-        private GUI.Pelicula pelicula1;
-        private GUI.Funcion funcion1;
-        private GUI.Sala sala1;
-        private GUI.Sala sala2;
+        private GUI.UC_Pelicula pelicula1;
+        private GUI.UC_Funcion funcion1;
+        private GUI.UC_Sala sala1;
+        private GUI.UC_Sala sala2;
+        private GUI.UC_Empleado empleado1;
+        private TabPage tabPage5;
+        private GUI.UC_Boleto uC_Boleto1;
     }
 }

@@ -1,19 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="GUI\Empleado.cs">
+    <Compile Update="GUI\UC_Boleto.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="GUI\Funcion.cs">
+    <Compile Update="GUI\UC_Empleado.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="GUI\UC_Funcion.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="GUI\MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\Pelicula.cs">
+    <Compile Update="GUI\UC_Pelicula.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="GUI\Sala.cs">
+    <Compile Update="GUI\UC_Sala.cs">
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>

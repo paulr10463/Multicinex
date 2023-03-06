@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace Multicinex.GUI
 {
-    public partial class Pelicula : UserControl
+    public partial class UC_Funcion : UserControl
     {
-        public Pelicula()
+        public UC_Funcion()
         {
             InitializeComponent();
         }
-
     }
 }
