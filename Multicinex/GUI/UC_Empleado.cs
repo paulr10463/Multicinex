@@ -13,21 +13,54 @@ namespace Multicinex.GUI
 {
     public partial class UC_Empleado : UserControl
     {
+        List<EmpleadoInfo> empleadosRegistrados;
         public UC_Empleado()
         {
             InitializeComponent();
-            llenarTablaCliente();
+            empleadosRegistrados = EmpleadoInfoMapper.ConsultarEmpleado();
+            llenarTablaInfoEmpleado(empleadosRegistrados);
         }
 
-        public void llenarTablaCliente()
+        public void llenarTablaInfoEmpleado(List<EmpleadoInfo> listaEmpleados)
         {
-                siticoneDataGridView1.Rows.Clear();
-                List <EmpleadoInfo> empleadosRegistrados = EmpleadoInfoMapper.ConsultarEmpleado();
-                foreach (EmpleadoInfo empleado in empleadosRegistrados)
+            siticoneDataGridView1.Rows.Clear();
+            foreach (EmpleadoInfo empleado in listaEmpleados)
+            {
+                siticoneDataGridView1.Rows.Add(empleado.cc, empleado.nombre, empleado.apellido, empleado.nombreSucursal);
+            }
+        }
+
+        /*public void llenarTablaSueldoEmpleado(List<EmpleadoInfo> listaEmpleados)
+        {
+            siticoneDataGridView2.Rows.Clear();
+            foreach (EmpleadoInfo empleado in listaEmpleados)
+            {
+                siticoneDataGridView1.Rows.Add(empleado.cc, empleado.nombre, empleado.apellido, empleado.nombreSucursal);
+            }
+        }*/
+
+        public List<EmpleadoInfo> buscarEmpleado(string cc)
+        {
+            List<EmpleadoInfo> resultado = new List<EmpleadoInfo>();
+            foreach (EmpleadoInfo item in EmpleadoInfoMapper.ConsultarEmpleado())
+            {
+                if (item.cc.Contains(cc))
                 {
-                    siticoneDataGridView1.Rows.Add(empleado.cc, empleado.nombre,empleado.apellido, empleado.nombreSucursal);
+                    resultado.Add(item);
                 }
-            
+            }
+            return resultado;
+
+        }
+
+        private void siticoneTextBox7_TextChanged(object sender, EventArgs e)
+        {
+            llenarTablaInfoEmpleado(buscarEmpleado(siticoneTextBox7.Text));
+        }
+
+        private void siticoneTextBox4_TextChanged(object sender, EventArgs e)
+        {
+            //llenarTablaSueldoEmpleado(buscarEmpleado(siticoneTextBox4.Text));
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Multicinex.GUI
 {
-    partial class UC_Sala
+    partial class UC_Asignacion
     {
         /// <summary> 
         /// Variable del diseñador necesaria.
@@ -34,52 +34,38 @@
             this.siticoneTabControl1 = new Siticone.Desktop.UI.WinForms.SiticoneTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.siticoneButton1 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            this.siticoneHtmlLabel5 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            this.siticoneComboBox2 = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
-            this.siticoneNumericUpDown3 = new Siticone.Desktop.UI.WinForms.SiticoneNumericUpDown();
-            this.siticoneNumericUpDown2 = new Siticone.Desktop.UI.WinForms.SiticoneNumericUpDown();
-            this.siticoneNumericUpDown1 = new Siticone.Desktop.UI.WinForms.SiticoneNumericUpDown();
             this.siticoneComboBox1 = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
             this.siticoneHtmlLabel3 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneHtmlLabel6 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            this.siticoneHtmlLabel4 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            this.siticoneHtmlLabel2 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneTextBox1 = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.siticoneHtmlLabel1 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.siticoneDataGridView1 = new Siticone.Desktop.UI.WinForms.SiticoneDataGridView();
+            this.siticoneTextBox7 = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.siticoneHtmlLabel7 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            this.siticoneComboBox3 = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codSala = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sueldo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaContratacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.siticoneTextBox7 = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.siticoneButton2 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            this.siticoneTextBox6 = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
-            this.siticoneHtmlLabel8 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.siticoneNumericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.siticoneNumericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.siticoneNumericUpDown1)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siticoneDataGridView1)).BeginInit();
-            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // siticoneTabControl1
             // 
             this.siticoneTabControl1.Controls.Add(this.tabPage1);
             this.siticoneTabControl1.Controls.Add(this.tabPage2);
-            this.siticoneTabControl1.Controls.Add(this.tabPage3);
             this.siticoneTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.siticoneTabControl1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.siticoneTabControl1.ItemSize = new System.Drawing.Size(180, 40);
             this.siticoneTabControl1.Location = new System.Drawing.Point(0, 0);
             this.siticoneTabControl1.Name = "siticoneTabControl1";
             this.siticoneTabControl1.SelectedIndex = 0;
-            this.siticoneTabControl1.Size = new System.Drawing.Size(879, 540);
+            this.siticoneTabControl1.Size = new System.Drawing.Size(1112, 771);
             this.siticoneTabControl1.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
             this.siticoneTabControl1.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
             this.siticoneTabControl1.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -96,29 +82,25 @@
             this.siticoneTabControl1.TabButtonSelectedState.ForeColor = System.Drawing.Color.White;
             this.siticoneTabControl1.TabButtonSelectedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
             this.siticoneTabControl1.TabButtonSize = new System.Drawing.Size(180, 40);
-            this.siticoneTabControl1.TabIndex = 1;
+            this.siticoneTabControl1.TabIndex = 2;
             this.siticoneTabControl1.TabMenuBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
             this.siticoneTabControl1.TabMenuOrientation = Siticone.Desktop.UI.WinForms.TabMenuOrientation.HorizontalTop;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.siticoneComboBox3);
+            this.tabPage1.Controls.Add(this.siticoneHtmlLabel7);
+            this.tabPage1.Controls.Add(this.dateTimePicker3);
             this.tabPage1.Controls.Add(this.siticoneButton1);
-            this.tabPage1.Controls.Add(this.siticoneHtmlLabel5);
-            this.tabPage1.Controls.Add(this.siticoneComboBox2);
-            this.tabPage1.Controls.Add(this.siticoneNumericUpDown3);
-            this.tabPage1.Controls.Add(this.siticoneNumericUpDown2);
-            this.tabPage1.Controls.Add(this.siticoneNumericUpDown1);
             this.tabPage1.Controls.Add(this.siticoneComboBox1);
             this.tabPage1.Controls.Add(this.siticoneHtmlLabel3);
             this.tabPage1.Controls.Add(this.siticoneHtmlLabel6);
-            this.tabPage1.Controls.Add(this.siticoneHtmlLabel4);
-            this.tabPage1.Controls.Add(this.siticoneHtmlLabel2);
             this.tabPage1.Controls.Add(this.siticoneTextBox1);
             this.tabPage1.Controls.Add(this.siticoneHtmlLabel1);
             this.tabPage1.Location = new System.Drawing.Point(4, 44);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(871, 492);
+            this.tabPage1.Size = new System.Drawing.Size(1104, 723);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Añadir";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -134,71 +116,11 @@
             this.siticoneButton1.FillColor = System.Drawing.Color.SeaGreen;
             this.siticoneButton1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.siticoneButton1.ForeColor = System.Drawing.Color.White;
-            this.siticoneButton1.Location = new System.Drawing.Point(324, 423);
+            this.siticoneButton1.Location = new System.Drawing.Point(413, 501);
             this.siticoneButton1.Name = "siticoneButton1";
             this.siticoneButton1.Size = new System.Drawing.Size(180, 45);
             this.siticoneButton1.TabIndex = 42;
             this.siticoneButton1.Text = "Añadir";
-            // 
-            // siticoneHtmlLabel5
-            // 
-            this.siticoneHtmlLabel5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.siticoneHtmlLabel5.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel5.Location = new System.Drawing.Point(210, 364);
-            this.siticoneHtmlLabel5.Name = "siticoneHtmlLabel5";
-            this.siticoneHtmlLabel5.Size = new System.Drawing.Size(26, 17);
-            this.siticoneHtmlLabel5.TabIndex = 41;
-            this.siticoneHtmlLabel5.Text = "Tipo";
-            // 
-            // siticoneComboBox2
-            // 
-            this.siticoneComboBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.siticoneComboBox2.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneComboBox2.BorderRadius = 15;
-            this.siticoneComboBox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.siticoneComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.siticoneComboBox2.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneComboBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneComboBox2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneComboBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.siticoneComboBox2.ItemHeight = 30;
-            this.siticoneComboBox2.Items.AddRange(new object[] {
-            "3D",
-            "2D"});
-            this.siticoneComboBox2.Location = new System.Drawing.Point(495, 364);
-            this.siticoneComboBox2.Name = "siticoneComboBox2";
-            this.siticoneComboBox2.Size = new System.Drawing.Size(200, 36);
-            this.siticoneComboBox2.TabIndex = 40;
-            // 
-            // siticoneNumericUpDown3
-            // 
-            this.siticoneNumericUpDown3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.siticoneNumericUpDown3.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneNumericUpDown3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneNumericUpDown3.Location = new System.Drawing.Point(541, 234);
-            this.siticoneNumericUpDown3.Name = "siticoneNumericUpDown3";
-            this.siticoneNumericUpDown3.Size = new System.Drawing.Size(95, 36);
-            this.siticoneNumericUpDown3.TabIndex = 39;
-            // 
-            // siticoneNumericUpDown2
-            // 
-            this.siticoneNumericUpDown2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.siticoneNumericUpDown2.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneNumericUpDown2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneNumericUpDown2.Location = new System.Drawing.Point(541, 305);
-            this.siticoneNumericUpDown2.Name = "siticoneNumericUpDown2";
-            this.siticoneNumericUpDown2.Size = new System.Drawing.Size(95, 36);
-            this.siticoneNumericUpDown2.TabIndex = 38;
-            // 
-            // siticoneNumericUpDown1
-            // 
-            this.siticoneNumericUpDown1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.siticoneNumericUpDown1.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneNumericUpDown1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneNumericUpDown1.Location = new System.Drawing.Point(541, 163);
-            this.siticoneNumericUpDown1.Name = "siticoneNumericUpDown1";
-            this.siticoneNumericUpDown1.Size = new System.Drawing.Size(95, 36);
-            this.siticoneNumericUpDown1.TabIndex = 37;
             // 
             // siticoneComboBox1
             // 
@@ -215,7 +137,7 @@
             this.siticoneComboBox1.Items.AddRange(new object[] {
             "Quito-Norte",
             "Quito-Sur"});
-            this.siticoneComboBox1.Location = new System.Drawing.Point(495, 99);
+            this.siticoneComboBox1.Location = new System.Drawing.Point(571, 280);
             this.siticoneComboBox1.Name = "siticoneComboBox1";
             this.siticoneComboBox1.Size = new System.Drawing.Size(200, 36);
             this.siticoneComboBox1.TabIndex = 36;
@@ -224,7 +146,7 @@
             // 
             this.siticoneHtmlLabel3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.siticoneHtmlLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel3.Location = new System.Drawing.Point(210, 99);
+            this.siticoneHtmlLabel3.Location = new System.Drawing.Point(286, 280);
             this.siticoneHtmlLabel3.Name = "siticoneHtmlLabel3";
             this.siticoneHtmlLabel3.Size = new System.Drawing.Size(47, 17);
             this.siticoneHtmlLabel3.TabIndex = 35;
@@ -235,31 +157,11 @@
             this.siticoneHtmlLabel6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.siticoneHtmlLabel6.BackColor = System.Drawing.Color.Transparent;
             this.siticoneHtmlLabel6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneHtmlLabel6.Location = new System.Drawing.Point(210, 163);
+            this.siticoneHtmlLabel6.Location = new System.Drawing.Point(286, 344);
             this.siticoneHtmlLabel6.Name = "siticoneHtmlLabel6";
-            this.siticoneHtmlLabel6.Size = new System.Drawing.Size(77, 24);
+            this.siticoneHtmlLabel6.Size = new System.Drawing.Size(114, 24);
             this.siticoneHtmlLabel6.TabIndex = 33;
-            this.siticoneHtmlLabel6.Text = "No. Sala";
-            // 
-            // siticoneHtmlLabel4
-            // 
-            this.siticoneHtmlLabel4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.siticoneHtmlLabel4.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel4.Location = new System.Drawing.Point(210, 305);
-            this.siticoneHtmlLabel4.Name = "siticoneHtmlLabel4";
-            this.siticoneHtmlLabel4.Size = new System.Drawing.Size(116, 17);
-            this.siticoneHtmlLabel4.TabIndex = 29;
-            this.siticoneHtmlLabel4.Text = "Capacidad Columnas";
-            // 
-            // siticoneHtmlLabel2
-            // 
-            this.siticoneHtmlLabel2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.siticoneHtmlLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel2.Location = new System.Drawing.Point(210, 234);
-            this.siticoneHtmlLabel2.Name = "siticoneHtmlLabel2";
-            this.siticoneHtmlLabel2.Size = new System.Drawing.Size(85, 17);
-            this.siticoneHtmlLabel2.TabIndex = 27;
-            this.siticoneHtmlLabel2.Text = "Capacidad Filas";
+            this.siticoneHtmlLabel6.Text = "Codigo Sala";
             // 
             // siticoneTextBox1
             // 
@@ -273,7 +175,7 @@
             this.siticoneTextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.siticoneTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.siticoneTextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneTextBox1.Location = new System.Drawing.Point(495, 31);
+            this.siticoneTextBox1.Location = new System.Drawing.Point(571, 212);
             this.siticoneTextBox1.Name = "siticoneTextBox1";
             this.siticoneTextBox1.PasswordChar = '\0';
             this.siticoneTextBox1.PlaceholderText = "";
@@ -285,11 +187,11 @@
             // 
             this.siticoneHtmlLabel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.siticoneHtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel1.Location = new System.Drawing.Point(210, 31);
+            this.siticoneHtmlLabel1.Location = new System.Drawing.Point(286, 224);
             this.siticoneHtmlLabel1.Name = "siticoneHtmlLabel1";
-            this.siticoneHtmlLabel1.Size = new System.Drawing.Size(66, 17);
+            this.siticoneHtmlLabel1.Size = new System.Drawing.Size(33, 24);
             this.siticoneHtmlLabel1.TabIndex = 25;
-            this.siticoneHtmlLabel1.Text = "Código Sala";
+            this.siticoneHtmlLabel1.Text = "CC";
             // 
             // tabPage2
             // 
@@ -298,7 +200,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 44);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(871, 492);
+            this.tabPage2.Size = new System.Drawing.Size(1104, 723);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Consultar";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -318,11 +220,10 @@
             this.siticoneDataGridView1.ColumnHeadersHeight = 46;
             this.siticoneDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.siticoneDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
             this.Nombre,
-            this.codSala,
-            this.Sueldo,
-            this.FechaContratacion,
-            this.Sucursal});
+            this.codSala});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -333,11 +234,11 @@
             this.siticoneDataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.siticoneDataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.siticoneDataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.siticoneDataGridView1.Location = new System.Drawing.Point(3, 82);
+            this.siticoneDataGridView1.Location = new System.Drawing.Point(3, 143);
             this.siticoneDataGridView1.Name = "siticoneDataGridView1";
             this.siticoneDataGridView1.RowHeadersVisible = false;
             this.siticoneDataGridView1.RowTemplate.Height = 25;
-            this.siticoneDataGridView1.Size = new System.Drawing.Size(865, 407);
+            this.siticoneDataGridView1.Size = new System.Drawing.Size(1098, 577);
             this.siticoneDataGridView1.TabIndex = 7;
             this.siticoneDataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.siticoneDataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -361,31 +262,6 @@
             this.siticoneDataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.siticoneDataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre Sucursal";
-            this.Nombre.Name = "Nombre";
-            // 
-            // codSala
-            // 
-            this.codSala.HeaderText = "Código Sala";
-            this.codSala.Name = "codSala";
-            // 
-            // Sueldo
-            // 
-            this.Sueldo.HeaderText = "Capacidad Filas";
-            this.Sueldo.Name = "Sueldo";
-            // 
-            // FechaContratacion
-            // 
-            this.FechaContratacion.HeaderText = "Capacidad Columnas";
-            this.FechaContratacion.Name = "FechaContratacion";
-            // 
-            // Sucursal
-            // 
-            this.Sucursal.HeaderText = "Tipo";
-            this.Sucursal.Name = "Sucursal";
-            // 
             // siticoneTextBox7
             // 
             this.siticoneTextBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -398,91 +274,88 @@
             this.siticoneTextBox7.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.siticoneTextBox7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.siticoneTextBox7.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneTextBox7.Location = new System.Drawing.Point(324, 22);
+            this.siticoneTextBox7.Location = new System.Drawing.Point(395, 51);
             this.siticoneTextBox7.Name = "siticoneTextBox7";
             this.siticoneTextBox7.PasswordChar = '\0';
             this.siticoneTextBox7.PlaceholderText = "";
             this.siticoneTextBox7.SelectedText = "";
-            this.siticoneTextBox7.Size = new System.Drawing.Size(200, 36);
+            this.siticoneTextBox7.Size = new System.Drawing.Size(201, 46);
             this.siticoneTextBox7.TabIndex = 4;
-            this.siticoneTextBox7.TextChanged += new System.EventHandler(this.siticoneTextBox7_TextChanged);
             // 
-            // tabPage3
+            // dateTimePicker3
             // 
-            this.tabPage3.Controls.Add(this.siticoneButton2);
-            this.tabPage3.Controls.Add(this.siticoneTextBox6);
-            this.tabPage3.Controls.Add(this.siticoneHtmlLabel8);
-            this.tabPage3.Location = new System.Drawing.Point(4, 44);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(871, 492);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Eliminar";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.dateTimePicker3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dateTimePicker3.CustomFormat = "dd/mm/yyyy";
+            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker3.Location = new System.Drawing.Point(571, 155);
+            this.dateTimePicker3.Name = "dateTimePicker3";
+            this.dateTimePicker3.Size = new System.Drawing.Size(200, 31);
+            this.dateTimePicker3.TabIndex = 47;
+            this.dateTimePicker3.Value = new System.DateTime(2023, 3, 2, 8, 20, 0, 0);
             // 
-            // siticoneButton2
+            // siticoneHtmlLabel7
             // 
-            this.siticoneButton2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.siticoneButton2.BorderRadius = 15;
-            this.siticoneButton2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.siticoneButton2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.siticoneButton2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.siticoneButton2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.siticoneButton2.FillColor = System.Drawing.Color.Firebrick;
-            this.siticoneButton2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneButton2.ForeColor = System.Drawing.Color.White;
-            this.siticoneButton2.Location = new System.Drawing.Point(329, 282);
-            this.siticoneButton2.Name = "siticoneButton2";
-            this.siticoneButton2.Size = new System.Drawing.Size(180, 45);
-            this.siticoneButton2.TabIndex = 17;
-            this.siticoneButton2.Text = "Eliminar";
+            this.siticoneHtmlLabel7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.siticoneHtmlLabel7.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel7.Location = new System.Drawing.Point(286, 162);
+            this.siticoneHtmlLabel7.Name = "siticoneHtmlLabel7";
+            this.siticoneHtmlLabel7.Size = new System.Drawing.Size(61, 24);
+            this.siticoneHtmlLabel7.TabIndex = 48;
+            this.siticoneHtmlLabel7.Text = "Fecha";
             // 
-            // siticoneTextBox6
+            // siticoneComboBox3
             // 
-            this.siticoneTextBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.siticoneTextBox6.BorderRadius = 20;
-            this.siticoneTextBox6.DefaultText = "";
-            this.siticoneTextBox6.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.siticoneTextBox6.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.siticoneTextBox6.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.siticoneTextBox6.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.siticoneTextBox6.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneTextBox6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneTextBox6.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneTextBox6.Location = new System.Drawing.Point(421, 175);
-            this.siticoneTextBox6.Name = "siticoneTextBox6";
-            this.siticoneTextBox6.PasswordChar = '\0';
-            this.siticoneTextBox6.PlaceholderText = "";
-            this.siticoneTextBox6.SelectedText = "";
-            this.siticoneTextBox6.Size = new System.Drawing.Size(200, 36);
-            this.siticoneTextBox6.TabIndex = 16;
+            this.siticoneComboBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.siticoneComboBox3.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneComboBox3.BorderRadius = 15;
+            this.siticoneComboBox3.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.siticoneComboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.siticoneComboBox3.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.siticoneComboBox3.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.siticoneComboBox3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.siticoneComboBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.siticoneComboBox3.ItemHeight = 30;
+            this.siticoneComboBox3.Items.AddRange(new object[] {
+            "Quito-Norte",
+            "Quito-Sur"});
+            this.siticoneComboBox3.Location = new System.Drawing.Point(571, 344);
+            this.siticoneComboBox3.Name = "siticoneComboBox3";
+            this.siticoneComboBox3.Size = new System.Drawing.Size(200, 36);
+            this.siticoneComboBox3.TabIndex = 49;
             // 
-            // siticoneHtmlLabel8
+            // Column1
             // 
-            this.siticoneHtmlLabel8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.siticoneHtmlLabel8.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel8.Location = new System.Drawing.Point(232, 175);
-            this.siticoneHtmlLabel8.Name = "siticoneHtmlLabel8";
-            this.siticoneHtmlLabel8.Size = new System.Drawing.Size(66, 17);
-            this.siticoneHtmlLabel8.TabIndex = 15;
-            this.siticoneHtmlLabel8.Text = "Codigo Sala";
+            this.Column1.HeaderText = "Fecha";
+            this.Column1.Name = "Column1";
             // 
-            // UC_Sala
+            // Column2
+            // 
+            this.Column2.HeaderText = "CC";
+            this.Column2.Name = "Column2";
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre Sucursal";
+            this.Nombre.Name = "Nombre";
+            // 
+            // codSala
+            // 
+            this.codSala.HeaderText = "Código Sala";
+            this.codSala.Name = "codSala";
+            // 
+            // UC_Asignacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.siticoneTabControl1);
-            this.Name = "UC_Sala";
-            this.Size = new System.Drawing.Size(879, 540);
+            this.Name = "UC_Asignacion";
+            this.Size = new System.Drawing.Size(1112, 771);
+            this.Load += new System.EventHandler(this.UC_Asignacion_Load);
             this.siticoneTabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.siticoneNumericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.siticoneNumericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.siticoneNumericUpDown1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.siticoneDataGridView1)).EndInit();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -491,30 +364,21 @@
 
         private Siticone.Desktop.UI.WinForms.SiticoneTabControl siticoneTabControl1;
         private TabPage tabPage1;
-        private TabPage tabPage2;
-        private TabPage tabPage3;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton1;
         private Siticone.Desktop.UI.WinForms.SiticoneComboBox siticoneComboBox1;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel3;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel6;
-        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel4;
-        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel2;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox siticoneTextBox1;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel1;
-        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel5;
-        private Siticone.Desktop.UI.WinForms.SiticoneComboBox siticoneComboBox2;
-        private Siticone.Desktop.UI.WinForms.SiticoneNumericUpDown siticoneNumericUpDown3;
-        private Siticone.Desktop.UI.WinForms.SiticoneNumericUpDown siticoneNumericUpDown2;
-        private Siticone.Desktop.UI.WinForms.SiticoneNumericUpDown siticoneNumericUpDown1;
-        private Siticone.Desktop.UI.WinForms.SiticoneTextBox siticoneTextBox7;
+        private TabPage tabPage2;
         private Siticone.Desktop.UI.WinForms.SiticoneDataGridView siticoneDataGridView1;
-        private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton2;
-        private Siticone.Desktop.UI.WinForms.SiticoneTextBox siticoneTextBox6;
-        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel8;
-        private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton1;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox siticoneTextBox7;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel7;
+        private DateTimePicker dateTimePicker3;
+        private Siticone.Desktop.UI.WinForms.SiticoneComboBox siticoneComboBox3;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Nombre;
         private DataGridViewTextBoxColumn codSala;
-        private DataGridViewTextBoxColumn Sueldo;
-        private DataGridViewTextBoxColumn FechaContratacion;
-        private DataGridViewTextBoxColumn Sucursal;
     }
 }

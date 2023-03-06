@@ -15,5 +15,17 @@ namespace Multicinex.Classes
         public string sinopsis { get; set; }
         public string nombreDirector { get; set; }
         public string apellidoDirector { get; set; }
+
+
+        public Pelicula(string codigoPelicula, string titulo, int duracion, int anio, string sinopsis, string nombreDirector, string apellidoDirector)
+        {
+            this.codigoPelicula = codigoPelicula;
+            this.titulo = titulo;
+            this.duracion = duracion;
+            this.anio = anio;
+            this.sinopsis = sinopsis;
+            this.nombreDirector = nombreDirector;
+            this.apellidoDirector = apellidoDirector;
+        }
     }
 }
