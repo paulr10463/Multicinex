@@ -28,19 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.siticoneTabControl1 = new Siticone.Desktop.UI.WinForms.SiticoneTabControl();
             this.Añadir = new System.Windows.Forms.TabPage();
-            this.siticoneComboBox1 = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
-            this.siticoneHtmlLabel6 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            this.siticoneButton3 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.tbCodigoBoleto = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            this.siticoneHtmlLabel1 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            this.LabelColumna = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            this.LabelFila = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            this.tbcodFuncion = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.siticoneHtmlLabel3 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneButton1 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            this.siticoneTextBox1 = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.siticoneDataGridView1 = new Siticone.Desktop.UI.WinForms.SiticoneDataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.siticoneDataGridView2 = new Siticone.Desktop.UI.WinForms.SiticoneDataGridView();
@@ -53,15 +56,17 @@
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.siticoneTextBox7 = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.siticoneButton2 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.siticoneTextBox6 = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            this.siticoneHtmlLabel8 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.asd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.siticoneButton2 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            this.siticoneTextBox6 = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
-            this.siticoneHtmlLabel8 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            this.cbSucursal = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
+            this.siticoneHtmlLabel6 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneTabControl1.SuspendLayout();
             this.Añadir.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siticoneDataGridView1)).BeginInit();
@@ -103,11 +108,16 @@
             // 
             // Añadir
             // 
-            this.Añadir.Controls.Add(this.siticoneComboBox1);
+            this.Añadir.Controls.Add(this.cbSucursal);
             this.Añadir.Controls.Add(this.siticoneHtmlLabel6);
+            this.Añadir.Controls.Add(this.siticoneButton3);
+            this.Añadir.Controls.Add(this.tbCodigoBoleto);
+            this.Añadir.Controls.Add(this.siticoneHtmlLabel1);
+            this.Añadir.Controls.Add(this.LabelColumna);
+            this.Añadir.Controls.Add(this.LabelFila);
+            this.Añadir.Controls.Add(this.tbcodFuncion);
             this.Añadir.Controls.Add(this.siticoneHtmlLabel3);
             this.Añadir.Controls.Add(this.siticoneButton1);
-            this.Añadir.Controls.Add(this.siticoneTextBox1);
             this.Añadir.Controls.Add(this.siticoneDataGridView1);
             this.Añadir.ImeMode = System.Windows.Forms.ImeMode.On;
             this.Añadir.Location = new System.Drawing.Point(4, 44);
@@ -117,44 +127,105 @@
             this.Añadir.TabIndex = 0;
             this.Añadir.Text = "Añadir";
             this.Añadir.UseVisualStyleBackColor = true;
+            this.Añadir.Click += new System.EventHandler(this.Añadir_Click);
             // 
-            // siticoneComboBox1
+            // siticoneButton3
             // 
-            this.siticoneComboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.siticoneComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneComboBox1.BorderRadius = 15;
-            this.siticoneComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.siticoneComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.siticoneComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.siticoneComboBox1.ItemHeight = 30;
-            this.siticoneComboBox1.Items.AddRange(new object[] {
-            "Quito-Norte",
-            "Quito-Sur"});
-            this.siticoneComboBox1.Location = new System.Drawing.Point(435, 75);
-            this.siticoneComboBox1.Name = "siticoneComboBox1";
-            this.siticoneComboBox1.Size = new System.Drawing.Size(200, 36);
-            this.siticoneComboBox1.TabIndex = 50;
+            this.siticoneButton3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.siticoneButton3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.siticoneButton3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.siticoneButton3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.siticoneButton3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.siticoneButton3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.siticoneButton3.ForeColor = System.Drawing.Color.White;
+            this.siticoneButton3.Location = new System.Drawing.Point(885, 416);
+            this.siticoneButton3.Name = "siticoneButton3";
+            this.siticoneButton3.Size = new System.Drawing.Size(78, 36);
+            this.siticoneButton3.TabIndex = 56;
+            this.siticoneButton3.Text = "Vender";
+            this.siticoneButton3.Click += new System.EventHandler(this.siticoneButton3_Click);
             // 
-            // siticoneHtmlLabel6
+            // tbCodigoBoleto
             // 
-            this.siticoneHtmlLabel6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.siticoneHtmlLabel6.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel6.Location = new System.Drawing.Point(295, 85);
-            this.siticoneHtmlLabel6.Name = "siticoneHtmlLabel6";
-            this.siticoneHtmlLabel6.Size = new System.Drawing.Size(47, 17);
-            this.siticoneHtmlLabel6.TabIndex = 49;
-            this.siticoneHtmlLabel6.Text = "Sucursal";
+            this.tbCodigoBoleto.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbCodigoBoleto.BorderRadius = 20;
+            this.tbCodigoBoleto.DefaultText = "";
+            this.tbCodigoBoleto.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbCodigoBoleto.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbCodigoBoleto.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbCodigoBoleto.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbCodigoBoleto.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbCodigoBoleto.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbCodigoBoleto.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbCodigoBoleto.Location = new System.Drawing.Point(443, 46);
+            this.tbCodigoBoleto.Name = "tbCodigoBoleto";
+            this.tbCodigoBoleto.PasswordChar = '\0';
+            this.tbCodigoBoleto.PlaceholderText = "";
+            this.tbCodigoBoleto.SelectedText = "";
+            this.tbCodigoBoleto.Size = new System.Drawing.Size(200, 36);
+            this.tbCodigoBoleto.TabIndex = 55;
+            // 
+            // siticoneHtmlLabel1
+            // 
+            this.siticoneHtmlLabel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.siticoneHtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.siticoneHtmlLabel1.Location = new System.Drawing.Point(258, 46);
+            this.siticoneHtmlLabel1.Name = "siticoneHtmlLabel1";
+            this.siticoneHtmlLabel1.Size = new System.Drawing.Size(133, 24);
+            this.siticoneHtmlLabel1.TabIndex = 54;
+            this.siticoneHtmlLabel1.Text = "Código Boleto";
+            // 
+            // LabelColumna
+            // 
+            this.LabelColumna.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LabelColumna.BackColor = System.Drawing.Color.Transparent;
+            this.LabelColumna.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LabelColumna.Location = new System.Drawing.Point(848, 356);
+            this.LabelColumna.Name = "LabelColumna";
+            this.LabelColumna.Size = new System.Drawing.Size(92, 24);
+            this.LabelColumna.TabIndex = 53;
+            this.LabelColumna.Text = "Columna: ";
+            // 
+            // LabelFila
+            // 
+            this.LabelFila.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LabelFila.BackColor = System.Drawing.Color.Transparent;
+            this.LabelFila.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LabelFila.Location = new System.Drawing.Point(848, 303);
+            this.LabelFila.Name = "LabelFila";
+            this.LabelFila.Size = new System.Drawing.Size(41, 24);
+            this.LabelFila.TabIndex = 52;
+            this.LabelFila.Text = "Fila :";
+            // 
+            // tbcodFuncion
+            // 
+            this.tbcodFuncion.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbcodFuncion.BorderRadius = 20;
+            this.tbcodFuncion.DefaultText = "";
+            this.tbcodFuncion.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbcodFuncion.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbcodFuncion.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbcodFuncion.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbcodFuncion.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbcodFuncion.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbcodFuncion.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbcodFuncion.Location = new System.Drawing.Point(443, 101);
+            this.tbcodFuncion.Name = "tbcodFuncion";
+            this.tbcodFuncion.PasswordChar = '\0';
+            this.tbcodFuncion.PlaceholderText = "";
+            this.tbcodFuncion.SelectedText = "";
+            this.tbcodFuncion.Size = new System.Drawing.Size(200, 36);
+            this.tbcodFuncion.TabIndex = 51;
             // 
             // siticoneHtmlLabel3
             // 
             this.siticoneHtmlLabel3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.siticoneHtmlLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel3.Location = new System.Drawing.Point(295, 143);
+            this.siticoneHtmlLabel3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.siticoneHtmlLabel3.Location = new System.Drawing.Point(258, 113);
             this.siticoneHtmlLabel3.Name = "siticoneHtmlLabel3";
-            this.siticoneHtmlLabel3.Size = new System.Drawing.Size(88, 17);
+            this.siticoneHtmlLabel3.Size = new System.Drawing.Size(148, 24);
             this.siticoneHtmlLabel3.TabIndex = 40;
             this.siticoneHtmlLabel3.Text = "Código Función";
             // 
@@ -167,61 +238,46 @@
             this.siticoneButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.siticoneButton1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.siticoneButton1.ForeColor = System.Drawing.Color.White;
-            this.siticoneButton1.Location = new System.Drawing.Point(693, 134);
+            this.siticoneButton1.Location = new System.Drawing.Point(674, 101);
             this.siticoneButton1.Name = "siticoneButton1";
             this.siticoneButton1.Size = new System.Drawing.Size(78, 36);
             this.siticoneButton1.TabIndex = 5;
             this.siticoneButton1.Text = "Buscar";
             this.siticoneButton1.Click += new System.EventHandler(this.siticoneButton1_Click);
             // 
-            // siticoneTextBox1
-            // 
-            this.siticoneTextBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.siticoneTextBox1.DefaultText = "";
-            this.siticoneTextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.siticoneTextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.siticoneTextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.siticoneTextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.siticoneTextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneTextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneTextBox1.Location = new System.Drawing.Point(435, 134);
-            this.siticoneTextBox1.Name = "siticoneTextBox1";
-            this.siticoneTextBox1.PasswordChar = '\0';
-            this.siticoneTextBox1.PlaceholderText = "";
-            this.siticoneTextBox1.SelectedText = "";
-            this.siticoneTextBox1.Size = new System.Drawing.Size(198, 36);
-            this.siticoneTextBox1.TabIndex = 4;
-            // 
             // siticoneDataGridView1
             // 
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            this.siticoneDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.siticoneDataGridView1.AllowUserToAddRows = false;
+            this.siticoneDataGridView1.AllowUserToDeleteRows = false;
+            this.siticoneDataGridView1.AllowUserToResizeColumns = false;
+            this.siticoneDataGridView1.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.siticoneDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.siticoneDataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.siticoneDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.siticoneDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.siticoneDataGridView1.ColumnHeadersHeight = 17;
             this.siticoneDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.siticoneDataGridView1.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.siticoneDataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.siticoneDataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.siticoneDataGridView1.Location = new System.Drawing.Point(145, 225);
+            this.siticoneDataGridView1.Location = new System.Drawing.Point(58, 289);
             this.siticoneDataGridView1.Name = "siticoneDataGridView1";
             this.siticoneDataGridView1.RowHeadersVisible = false;
             this.siticoneDataGridView1.RowTemplate.Height = 25;
-            this.siticoneDataGridView1.Size = new System.Drawing.Size(776, 405);
+            this.siticoneDataGridView1.Size = new System.Drawing.Size(647, 305);
             this.siticoneDataGridView1.TabIndex = 1;
             this.siticoneDataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.siticoneDataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -244,6 +300,7 @@
             this.siticoneDataGridView1.ThemeStyle.RowsStyle.Height = 25;
             this.siticoneDataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.siticoneDataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.siticoneDataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.siticoneDataGridView1_CellClick);
             // 
             // tabPage2
             // 
@@ -259,16 +316,16 @@
             // 
             // siticoneDataGridView2
             // 
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            this.siticoneDataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.siticoneDataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.siticoneDataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.siticoneDataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.siticoneDataGridView2.ColumnHeadersHeight = 46;
             this.siticoneDataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.siticoneDataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -279,14 +336,14 @@
             this.Column10,
             this.Column11,
             this.Column12});
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.siticoneDataGridView2.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.siticoneDataGridView2.DefaultCellStyle = dataGridViewCellStyle6;
             this.siticoneDataGridView2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.siticoneDataGridView2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.siticoneDataGridView2.Location = new System.Drawing.Point(3, 125);
@@ -384,36 +441,6 @@
             this.tabPage1.Text = "Eliminar";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Columna1";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Fila";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Columna";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Nombre Sucursal";
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Codigo Sala";
-            this.Column5.Name = "Column5";
-            // 
-            // asd
-            // 
-            this.asd.HeaderText = "Codigo Funcion";
-            this.asd.Name = "asd";
-            // 
             // siticoneButton2
             // 
             this.siticoneButton2.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -461,6 +488,66 @@
             this.siticoneHtmlLabel8.TabIndex = 18;
             this.siticoneHtmlLabel8.Text = "Código Boleto";
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Columna1";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Fila";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Columna";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Nombre Sucursal";
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Codigo Sala";
+            this.Column5.Name = "Column5";
+            // 
+            // asd
+            // 
+            this.asd.HeaderText = "Codigo Funcion";
+            this.asd.Name = "asd";
+            // 
+            // cbSucursal
+            // 
+            this.cbSucursal.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbSucursal.BackColor = System.Drawing.Color.Transparent;
+            this.cbSucursal.BorderRadius = 15;
+            this.cbSucursal.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbSucursal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSucursal.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbSucursal.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbSucursal.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbSucursal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cbSucursal.ItemHeight = 30;
+            this.cbSucursal.Items.AddRange(new object[] {
+            "Quito-Norte",
+            "Quito-Sur"});
+            this.cbSucursal.Location = new System.Drawing.Point(443, 159);
+            this.cbSucursal.Name = "cbSucursal";
+            this.cbSucursal.Size = new System.Drawing.Size(200, 36);
+            this.cbSucursal.TabIndex = 58;
+            // 
+            // siticoneHtmlLabel6
+            // 
+            this.siticoneHtmlLabel6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.siticoneHtmlLabel6.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel6.Location = new System.Drawing.Point(258, 168);
+            this.siticoneHtmlLabel6.Name = "siticoneHtmlLabel6";
+            this.siticoneHtmlLabel6.Size = new System.Drawing.Size(47, 17);
+            this.siticoneHtmlLabel6.TabIndex = 57;
+            this.siticoneHtmlLabel6.Text = "Sucursal";
+            // 
             // UC_Boleto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -489,10 +576,7 @@
         private TabPage tabPage1;
         private Siticone.Desktop.UI.WinForms.SiticoneDataGridView siticoneDataGridView1;
         private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton1;
-        private Siticone.Desktop.UI.WinForms.SiticoneTextBox siticoneTextBox1;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel3;
-        private Siticone.Desktop.UI.WinForms.SiticoneComboBox siticoneComboBox1;
-        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel6;
         private Siticone.Desktop.UI.WinForms.SiticoneDataGridView siticoneDataGridView2;
         private DataGridViewTextBoxColumn Column6;
         private DataGridViewTextBoxColumn Column7;
@@ -510,5 +594,13 @@
         private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton2;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox siticoneTextBox6;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel8;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox tbcodFuncion;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel LabelColumna;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel LabelFila;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox tbCodigoBoleto;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel1;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton3;
+        private Siticone.Desktop.UI.WinForms.SiticoneComboBox cbSucursal;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel6;
     }
 }

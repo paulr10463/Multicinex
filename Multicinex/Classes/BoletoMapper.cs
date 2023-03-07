@@ -23,7 +23,25 @@ namespace Multicinex.Classes
                 {
                     while (reader.Read())
                     {
-                        boletosRegistrados.Add(new Boleto(reader.GetString(0), reader.GetString(1), reader.GetInt32(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetDateTime(6), reader.GetDateTime(7)));
+                        boletosRegistrados.Add(new Boleto(reader.GetString(0), reader.GetString(1), reader.GetInt32(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetDateTime(6), reader.GetTimeSpan(7)));
+                    }
+                }
+            }
+            return boletosRegistrados;
+        }
+
+        public static List<Boleto> ConsultarBoletoFuncion(string codFuncion)
+        {
+            List<Boleto> boletosRegistrados = new List<Boleto>();
+            SqlConnection connection = new SqlConnection(_connectionString);
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("SELECT * FROM BOLETO_SUR WHERE CODIGO_FUNCION = '"+codFuncion+"'", connection);
+                SqlDataReader reader = command.ExecuteReader();
+                {
+                    while (reader.Read())
+                    {
+                        boletosRegistrados.Add(new Boleto(reader.GetString(0), reader.GetString(1), reader.GetInt32(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetDateTime(6), reader.GetTimeSpan(7)));
                     }
                 }
             }
@@ -35,14 +53,14 @@ namespace Multicinex.Classes
             SqlConnection connection = new SqlConnection(_connectionString);
             connection.Open();
 
-            using (var cmd = new SqlCommand("INSERT INTO BOLETO_SUR (codigo_boleto, fila, columna, nombre_sucursal, codigo_sala, codigo_funcion,fecha_emision, hora_emision) values (@codigo_boleto, @fila, @columna, @nombre_sucursal, @codigo_sala, @codigo_funcion, @fecha_emision, @hora_emision)", connection))
+            using (var cmd = new SqlCommand("INSERT INTO BOLETO_SUR values (@codigo_boleto, @fila, @columna, @nombre_sucursal, @codigo_sala, @codigo_funcion, @fecha_emision, @hora_emision)", connection))
             {
                 cmd.Parameters.AddWithValue("@codigo_boleto", boleto.codigoBoleto );
                 cmd.Parameters.AddWithValue("@fila", boleto.fila);
                 cmd.Parameters.AddWithValue("@columna", boleto.columna);
                 cmd.Parameters.AddWithValue("@nombre_Sucursal", boleto.nombreSucursal);
                 cmd.Parameters.AddWithValue("@codigo_sala", boleto.codigoSala );
-                cmd.Parameters.AddWithValue("@codigo_fucion", boleto.codigoFuncion);
+                cmd.Parameters.AddWithValue("@codigo_funcion", boleto.codigoFuncion);
                 cmd.Parameters.AddWithValue("@fecha_emision", boleto.fechaEmision);
                 cmd.Parameters.AddWithValue("@hora_emision", boleto.horaEmision);
                 cmd.ExecuteNonQuery();

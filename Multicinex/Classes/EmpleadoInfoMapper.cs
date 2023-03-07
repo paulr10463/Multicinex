@@ -8,9 +8,9 @@ namespace Multicinex.Classes
     {
         private static readonly string _connectionString = "Data Source=DESKTOP-GLGPNIG; Initial Catalog= MulticinexSur; User ID=sa; Password=P@ssw0rd;";
 
-        public static List<EmpleadoInfo> ConsultarEmpleado()
+        public static List<Empleado> ConsultarEmpleado()
         {
-            List<EmpleadoInfo> empleadosRegistrados = new List<EmpleadoInfo>();
+            List<Empleado> empleadosRegistrados = new List<Empleado>();
             SqlConnection connection = new SqlConnection(_connectionString);
             {
                 connection.Open();
@@ -19,14 +19,14 @@ namespace Multicinex.Classes
                 {
                     while (reader.Read())
                     {
-                        empleadosRegistrados.Add(new EmpleadoInfo(reader.GetString(0), reader.GetString(1), reader.GetString(2), null, null ,reader.GetString(3)));
+                        empleadosRegistrados.Add(new Empleado(reader.GetString(0), reader.GetString(1), reader.GetString(2), null, null ,reader.GetString(3)));
                     }
                 }
             }
             return empleadosRegistrados;
         }
 
-        public static void IngresarEmpleadoInfo(EmpleadoInfo empleadoInfo)
+        public static void IngresarEmpleado(Empleado empleadoInfo)
         {
             SqlConnection connection = new SqlConnection(_connectionString);
             connection.Open();
@@ -39,9 +39,16 @@ namespace Multicinex.Classes
                 cmd.Parameters.AddWithValue("@nombre_sucursal", empleadoInfo.nombreSucursal);
                 cmd.ExecuteNonQuery();
             }
+            using (var cmd = new SqlCommand("INSERT INTO EMPLEADO_SUELDO VALUES (@cc,@sueldo, @fecha_contratacion)", connection))
+            {
+                cmd.Parameters.AddWithValue("@cc", empleadoInfo.cc);
+                cmd.Parameters.AddWithValue("@sueldo", empleadoInfo.sueldo);
+                cmd.Parameters.AddWithValue("@fecha_contratacion", empleadoInfo.fechaContratacion);
+                cmd.ExecuteNonQuery();
+            }
         }
 
-        public static async Task<bool> ModificarEmpleadoInfo(EmpleadoInfo empleadoInfo)
+        public static async Task<bool> ModificarEmpleadoInfo(Empleado empleadoInfo)
         {
             int result = 0;
             if (empleadoInfo.cc != null && empleadoInfo.nombreSucursal != null)
@@ -60,16 +67,14 @@ namespace Multicinex.Classes
             return result > 0;
         }
 
-        public static async Task<bool> EliminarEmpleadoInfo(EmpleadoInfo empleadoInfo)
+        public static bool EliminarEmpleadoInfo(string empleadoCC)
         {
-            await using var connection = new SqlConnection(_connectionString);
+            using var connection = new SqlConnection(_connectionString);
             connection.Open();
-            await using SqlCommand command = connection.CreateCommand();
+            using SqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.Text;
-            command.CommandText = "DELETE FROM EMPLEADO_INFO_SUR WHERE NOMBRE_SUCURSAL = @nombre_sucursal AND CC = @cc";
-            command.Parameters.AddWithValue("@nombre_sucursal", empleadoInfo.nombreSucursal);
-            command.Parameters.AddWithValue("@cc", empleadoInfo.cc);
-            
+            command.CommandText = "DELETE FROM EMPLEADO_INFO_SUR WHERE CC = @cc";
+            command.Parameters.AddWithValue("@cc", empleadoCC);
             var result = 0;
             try
             {

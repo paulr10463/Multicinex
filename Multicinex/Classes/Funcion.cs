@@ -28,5 +28,20 @@ namespace Multicinex.Classes
             this.horaFin = horaFin;
             this.fecha = fecha;
         }
+        public Funcion(string codigoPelicula, string codigoFuncion, string nombreSucursal, string codigoSala, TimeSpan horaInicio, TimeSpan horaFin, DateTime fecha)
+        {
+            this.codigoPelicula = codigoPelicula;
+            this.codigoFuncion = codigoFuncion;
+            this.nombreSucursal = nombreSucursal;
+            this.codigoSala = codigoSala;
+            this.horaInicio = this.horaInicio.Date + horaInicio;
+            this.horaFin = this.horaInicio.Date + horaFin;
+            this.fecha = fecha;
+        }
+        
+        public Funcion()
+        {
+
+        }
     }
 }

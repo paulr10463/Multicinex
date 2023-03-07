@@ -50,6 +50,7 @@
             this.tbTitulo = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.siticoneHtmlLabel1 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.siticoneHtmlLabel10 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneTextBox7 = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.siticoneDataGridView1 = new Siticone.Desktop.UI.WinForms.SiticoneDataGridView();
             this.codigoPelicula = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -358,6 +359,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.siticoneHtmlLabel10);
             this.tabPage2.Controls.Add(this.siticoneTextBox7);
             this.tabPage2.Controls.Add(this.siticoneDataGridView1);
             this.tabPage2.Location = new System.Drawing.Point(4, 44);
@@ -367,6 +369,16 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Consultar";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // siticoneHtmlLabel10
+            // 
+            this.siticoneHtmlLabel10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.siticoneHtmlLabel10.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel10.Location = new System.Drawing.Point(303, 50);
+            this.siticoneHtmlLabel10.Name = "siticoneHtmlLabel10";
+            this.siticoneHtmlLabel10.Size = new System.Drawing.Size(86, 17);
+            this.siticoneHtmlLabel10.TabIndex = 3;
+            this.siticoneHtmlLabel10.Text = "Codigo Película";
             // 
             // siticoneTextBox7
             // 
@@ -380,7 +392,7 @@
             this.siticoneTextBox7.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.siticoneTextBox7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.siticoneTextBox7.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneTextBox7.Location = new System.Drawing.Point(345, 48);
+            this.siticoneTextBox7.Location = new System.Drawing.Point(454, 41);
             this.siticoneTextBox7.Name = "siticoneTextBox7";
             this.siticoneTextBox7.PasswordChar = '\0';
             this.siticoneTextBox7.PlaceholderText = "";
@@ -543,6 +555,7 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siticoneDataGridView1)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
@@ -582,5 +595,6 @@
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel8;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox tbcodPelicula;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel9;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel10;
     }
 }

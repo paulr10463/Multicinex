@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Multicinex.Classes
 {
-    public class EmpleadoInfo
+    public class Empleado
     {
         public string cc;
         public string nombre;
@@ -15,7 +15,7 @@ namespace Multicinex.Classes
         public DateTime? fechaContratacion;
         public string nombreSucursal;
 
-        public EmpleadoInfo(string cc, string nombre, string apellido, double? sueldo, DateTime? fechaContratacion, string nombreSucursal)
+        public Empleado(string cc, string nombre, string apellido, double? sueldo, DateTime? fechaContratacion, string nombreSucursal)
         {
             this.cc = cc;
             this.nombre = nombre;

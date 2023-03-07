@@ -78,16 +78,10 @@ namespace Multicinex.Classes
             connection.Open();
             using SqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.Text;
-            command.CommandText = "DELETE FROM Pelicula WHERE codigo_pelicula = @codigo_pelicula;";
+            command.CommandText = "DELETE FROM Pelicula WHERE codigo_pelicula = @codigo_pelicula";
             command.Parameters.AddWithValue("@codigo_pelicula", codigoPelicula);
-            var result = 0;
-            try
-            {
-                result = command.ExecuteNonQuery();
-            }catch(Exception ex)
-            {
-                ex.ToString();
-            }
+            var result = command.ExecuteNonQuery();
+
             return result > 0;
         }
         

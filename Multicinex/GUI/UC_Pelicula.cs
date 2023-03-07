@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿
+using System.Data.SqlClient;
 using Multicinex.Classes;
 
 namespace Multicinex.GUI
@@ -32,8 +25,18 @@ namespace Multicinex.GUI
                 tbNombreD.Text,
                 tbApellido.Text
                 );
-            PeliculaMapper.ingresarPelicula( pelicula );
-            vaciarCampos();
+            try
+            {
+                PeliculaMapper.IngresarPelicula(pelicula);
+                MessageBox.Show("Película añadida con exito");
+                vaciarCampos();
+                llenarTablaPelicula(PeliculaMapper.ConsultarPelicula());
+            }
+            catch
+            {
+                MessageBox.Show("No se pudo añadir la pelicula");
+            }
+            
         }
 
         private void vaciarCampos()
@@ -76,16 +79,19 @@ namespace Multicinex.GUI
 
         }
 
+        //Eliminar Pelicula
         private void siticoneButton2_Click(object sender, EventArgs e)
         {
-            if (PeliculaMapper.EliminarPelicula(siticoneTextBox6.Text))
+            try
             {
-                MessageBox.Show("Registro Eliminado con exito");
+                 PeliculaMapper.EliminarPelicula(siticoneTextBox6.Text);
+                 MessageBox.Show("Registro Eliminado con exito");
             }
-            else
+            catch(SqlException ex)
             {
-                MessageBox.Show("No se encontró el registro");
+                MessageBox.Show("No se pudo eliminar el registro: " + ex.Message);
             }
+
         }
 
         private void siticoneTabControl1_SelectedIndexChanged(object sender, EventArgs e)

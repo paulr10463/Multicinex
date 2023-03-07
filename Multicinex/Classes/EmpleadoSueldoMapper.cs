@@ -23,7 +23,7 @@ namespace Multicinex.Classes
                 {
                     while (reader.Read())
                     {
-                        empleadoSueldoRegistrados.Add(new EmpleadoSueldo(reader.GetString(0), reader.GetDouble(1), reader.GetDateTime(2)));
+                        empleadoSueldoRegistrados.Add(new EmpleadoSueldo(reader.GetString(0), (double)reader.GetDecimal(1), reader.GetDateTime(2)));
                     }
                 }
             }

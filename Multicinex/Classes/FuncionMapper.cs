@@ -24,7 +24,7 @@ namespace Multicinex.Classes
                 {
                     while (reader.Read())
                     {
-                        funcionesRegistradas.Add(new Funcion(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetDateTime(4), reader.GetDateTime(5), reader.GetDateTime(6)));
+                        funcionesRegistradas.Add(new Funcion(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetTimeSpan(4), reader.GetTimeSpan(5), reader.GetDateTime(6)));
                     }
                 }
             }
@@ -69,15 +69,14 @@ namespace Multicinex.Classes
             return result > 0;
         }
 
-        public static async Task<bool> EliminarFuncion(Funcion funcion)
+        public static bool EliminarFuncion(string codigoFuncion)
         {
-            await using var connection = new SqlConnection(_connectionString);
+            using var connection = new SqlConnection(_connectionString);
             connection.Open();
-            await using SqlCommand command = connection.CreateCommand();
+            using SqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.Text;
-            command.CommandText = "DELETE FROM FUNCION_SUR WHERE NOMBRE_SUCURSAL = @nombre_Sucursal AND CODIGO_FUNCION = @codigo_funcion";
-            command.Parameters.AddWithValue("@nombre_sucursal", funcion.nombreSucursal);
-            command.Parameters.AddWithValue("@codigo_funcion", funcion.codigoFuncion);
+            command.CommandText = "DELETE FROM FUNCION_SUR WHERE CODIGO_FUNCION = @codigo_funcion";
+            command.Parameters.AddWithValue("@codigo_funcion", codigoFuncion);
 
             var result = 0;
             try
