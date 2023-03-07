@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Diagnostics.Metrics;
 using System.Drawing;
 using System.Linq;
@@ -25,6 +26,7 @@ namespace Multicinex.GUI
         public UC_Boleto()
         {
             InitializeComponent();
+            llenarTablaBoleto(buscarBoleto(tbConsultarBoleto.Text));
 
         }
 
@@ -72,10 +74,7 @@ namespace Multicinex.GUI
                         //this.siticoneDataGridView1.Columns.Add(new DataGridViewTextBoxColumn());
                     }
                     
-                    // Create a new DataTable.
                     DataTable table = new DataTable("ParentTable");
-                    // Declare variables for DataColumn and DataRow objects.
-                    DataColumn column;
                     DataRow row;
 
 
@@ -93,7 +92,11 @@ namespace Multicinex.GUI
                         siticoneDataGridView1.Rows[fila].Cells[columna].Value = "Ocupado";
                     }            
                 }
-            }       
+            }
+            else
+            {
+                siticoneDataGridView1.DataSource = null;
+            }      
         }
 
         private void siticoneDataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -125,8 +128,7 @@ namespace Multicinex.GUI
                 BoletoMapper.IngresarBoleto(boletoVenta);
                 MessageBox.Show(boletoVenta.ToString());
                 vaciarCampos();
-
-                //llenarTablaBoleto(PeliculaMapper.ConsultarPelicula());
+                llenarTablaBoleto(BoletoMapper.ConsultarBoleto());
             }
             catch(Exception ex)
             {
@@ -143,6 +145,47 @@ namespace Multicinex.GUI
             salaSeleccionada = null;
             funcionBoletoVenta = null;
             siticoneDataGridView1.Columns.Clear();
+        }
+
+        private void siticoneButton2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BoletoMapper.EliminarBoleto(tbEliminarBoleto.Text);
+                MessageBox.Show("Boleto Eliminado con exito");
+                llenarTablaBoleto(BoletoMapper.ConsultarBoleto());
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("No se pudo eliminar el boleto: " + ex.Message);
+            }
+        }
+
+        private void tbConsultarBoleto_TextChanged(object sender, EventArgs e)
+        {
+            llenarTablaBoleto(buscarBoleto(tbConsultarBoleto.Text));
+        }
+
+        public void llenarTablaBoleto(List<Boleto> listaBoleto)
+        {
+            siticoneDataGridView2.Rows.Clear();
+            foreach (Boleto item in listaBoleto)
+            {
+                siticoneDataGridView2.Rows.Add(item.codigoBoleto, item.fila, item.columna, item.nombreSucursal, item.codigoSala, item.codigoFuncion, item.fechaEmision, item.horaEmision);
+            }
+
+        }
+        public List<Boleto> buscarBoleto(string codigoBoleto)
+        {
+            List<Boleto> resultado = new List<Boleto>();
+            foreach (Boleto item in BoletoMapper.ConsultarBoleto())
+            {
+                if (item.codigoBoleto.Contains(codigoBoleto))
+                {
+                    resultado.Add(item);
+                }
+            }
+            return resultado;
         }
     }
 }

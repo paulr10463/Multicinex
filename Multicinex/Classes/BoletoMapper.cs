@@ -89,15 +89,14 @@ namespace Multicinex.Classes
             return result > 0;
         }
 
-        public static async Task<bool> EliminarBoleto(Boleto boleto)
+        public static bool EliminarBoleto(string codigoBoleto)
         {
-            await using var connection = new SqlConnection(_connectionString);
+            using var connection = new SqlConnection(_connectionString);
             connection.Open();
-            await using SqlCommand command = connection.CreateCommand();
+            using SqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.Text;
-            command.CommandText = "DELETE FROM BOLETO_SUR WHERE CODIGO_BOLETO = @codigo_boleto AND NOMBRE_SUCURSAL = @nombre_sucursal";
-            command.Parameters.AddWithValue("@codigo_boleto", boleto.codigoBoleto);
-            command.Parameters.AddWithValue("@nombre_Sucursal", boleto.nombreSucursal);
+            command.CommandText = "DELETE FROM BOLETO_SUR WHERE CODIGO_BOLETO = @codigo_boleto";
+            command.Parameters.AddWithValue("@codigo_boleto", codigoBoleto);
 
             var result = 0;
             try
