@@ -56,8 +56,10 @@
             this.codigoPelicula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Titulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.siticoneButton2 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.siticoneTextBox6 = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
@@ -419,8 +421,10 @@
             this.codigoPelicula,
             this.Titulo,
             this.Column1,
-            this.Column2,
-            this.Column3});
+            this.Column4,
+            this.Column3,
+            this.Column5,
+            this.Column2});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -458,6 +462,8 @@
             this.siticoneDataGridView1.ThemeStyle.RowsStyle.Height = 25;
             this.siticoneDataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.siticoneDataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.siticoneDataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.siticoneDataGridView1_CellClick);
+            this.siticoneDataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.siticoneDataGridView1_CellContentDoubleClick);
             // 
             // codigoPelicula
             // 
@@ -474,15 +480,25 @@
             this.Column1.HeaderText = "Duracion";
             this.Column1.Name = "Column1";
             // 
-            // Column2
+            // Column4
             // 
-            this.Column2.HeaderText = "Director";
-            this.Column2.Name = "Column2";
+            this.Column4.HeaderText = "Año";
+            this.Column4.Name = "Column4";
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Sinopsis";
             this.Column3.Name = "Column3";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "NombreDirector";
+            this.Column5.Name = "Column5";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Apellido Director";
+            this.Column2.Name = "Column2";
             // 
             // tabPage3
             // 
@@ -585,16 +601,18 @@
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox tbApellido;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox siticoneTextBox7;
         private Siticone.Desktop.UI.WinForms.SiticoneDataGridView siticoneDataGridView1;
-        private DataGridViewTextBoxColumn codigoPelicula;
-        private DataGridViewTextBoxColumn Titulo;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column3;
         private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton2;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox siticoneTextBox6;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel8;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox tbcodPelicula;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel9;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel10;
+        private DataGridViewTextBoxColumn codigoPelicula;
+        private DataGridViewTextBoxColumn Titulo;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column4;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column5;
+        private DataGridViewTextBoxColumn Column2;
     }
 }

@@ -49,14 +49,14 @@ namespace Multicinex.Classes
             }
         }
 
-        public static async Task<bool> ModificarPelicula(Pelicula pelicula)
+        public static bool ModificarPelicula(Pelicula pelicula)
         {
             int result = 0;
             if (pelicula.codigoPelicula != null)
             {
-                await using SqlConnection connection = new SqlConnection(_connectionString);
+                using SqlConnection connection = new SqlConnection(_connectionString);
                 connection.Open();
-                await using SqlCommand command = connection.CreateCommand();
+                using SqlCommand command = connection.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = "UPDATE PELICULA SET titulo = @titulo, duracion = @duracion, anio = @anio, sinopsis = @sinopsis, nombre_director = @nombre_director, apellido_director = @apellido_director WHERE CODIGO_PELICULA = @codigo_pelicula";
                 command.Parameters.AddWithValue("@titulo", pelicula.titulo);
@@ -66,7 +66,7 @@ namespace Multicinex.Classes
                 command.Parameters.AddWithValue("@nombre_director", pelicula.nombreDirector);
                 command.Parameters.AddWithValue("@apellido_director", pelicula.apellidoDirector);
                 command.Parameters.AddWithValue("@codigo_pelicula", pelicula.codigoPelicula);
-                result = await command.ExecuteNonQueryAsync();
+                result = command.ExecuteNonQuery();
             }
             return result > 0;
         }

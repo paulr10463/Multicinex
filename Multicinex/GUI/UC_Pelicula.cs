@@ -98,5 +98,29 @@ namespace Multicinex.GUI
         {
             llenarTablaPelicula(buscarPelicula(siticoneTextBox7.Text));
         }
+
+        private void siticoneDataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        { 
+            
+        }
+
+        private void siticoneDataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            Pelicula peliculaAEditar = new Pelicula(
+                siticoneDataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(),
+                siticoneDataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(),
+                Convert.ToInt32(siticoneDataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString()),
+                Convert.ToInt32(siticoneDataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString()),
+                siticoneDataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString(),
+                siticoneDataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString(),
+                siticoneDataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString()
+                );
+            Editar_Pelicula editar_Pelicula = new Editar_Pelicula(peliculaAEditar);
+            editar_Pelicula.Visible = true;
+            editar_Pelicula.BringToFront();
+
+        }
     }
 }
+    

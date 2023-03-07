@@ -40,12 +40,15 @@
             this.sala2 = new Multicinex.GUI.UC_Sala();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.uC_Boleto1 = new Multicinex.GUI.UC_Boleto();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.uC_Asignacion1 = new Multicinex.GUI.UC_Asignacion();
             this.siticoneTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            this.tabPage6.SuspendLayout();
             this.SuspendLayout();
             // 
             // siticoneTabControl1
@@ -56,6 +59,7 @@
             this.siticoneTabControl1.Controls.Add(this.tabPage3);
             this.siticoneTabControl1.Controls.Add(this.tabPage4);
             this.siticoneTabControl1.Controls.Add(this.tabPage5);
+            this.siticoneTabControl1.Controls.Add(this.tabPage6);
             this.siticoneTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.siticoneTabControl1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.siticoneTabControl1.ItemSize = new System.Drawing.Size(180, 40);
@@ -186,6 +190,25 @@
             this.uC_Boleto1.Size = new System.Drawing.Size(1176, 720);
             this.uC_Boleto1.TabIndex = 2;
             // 
+            // tabPage6
+            // 
+            this.tabPage6.Controls.Add(this.uC_Asignacion1);
+            this.tabPage6.Location = new System.Drawing.Point(184, 4);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(1182, 726);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "Asignación";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // uC_Asignacion1
+            // 
+            this.uC_Asignacion1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_Asignacion1.Location = new System.Drawing.Point(3, 3);
+            this.uC_Asignacion1.Name = "uC_Asignacion1";
+            this.uC_Asignacion1.Size = new System.Drawing.Size(1176, 720);
+            this.uC_Asignacion1.TabIndex = 0;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -201,6 +224,7 @@
             this.tabPage3.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
+            this.tabPage6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -219,5 +243,7 @@
         private GUI.UC_Empleado empleado1;
         private TabPage tabPage5;
         private GUI.UC_Boleto uC_Boleto1;
+        private TabPage tabPage6;
+        private GUI.UC_Asignacion uC_Asignacion1;
     }
 }
