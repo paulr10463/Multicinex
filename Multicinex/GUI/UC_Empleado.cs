@@ -15,7 +15,6 @@ namespace Multicinex.GUI
 {
     public partial class UC_Empleado : UserControl
     {
-        String nombreSucursalEscogida = "";
         public UC_Empleado()
         {
             InitializeComponent();
@@ -54,13 +53,11 @@ namespace Multicinex.GUI
                         resultado.Add(item);
                     }
                 }
-                else
+                else if (item.cc.Contains(cc) && item.nombreSucursal.Equals(siticoneComboBox1.Text))
                 {
-                    if (item.cc.Contains(cc) && item.nombreSucursal.Equals(siticoneComboBox1.Text))
-                    {
-                        resultado.Add(item);
-                    }
-                } 
+                    resultado.Add(item);
+                }
+
             }
             return resultado;
 

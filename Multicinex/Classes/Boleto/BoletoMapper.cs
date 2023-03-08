@@ -53,7 +53,7 @@ namespace Multicinex.Classes.Boleto
             SqlConnection connection = new SqlConnection(_connectionString);
             connection.Open();
             new SqlCommand("Set xact_abort on", connection).ExecuteNonQuery();
-            using (var cmd = new SqlCommand("INSERT INTO BOLETO_SUR values (@codigo_boleto, @fila, @columna, @nombre_sucursal, @codigo_sala, @codigo_funcion, @fecha_emision, @hora_emision)", connection))
+            using (var cmd = new SqlCommand("INSERT INTO V_BOLETO values (@codigo_boleto, @fila, @columna, @nombre_sucursal, @codigo_sala, @codigo_funcion, @fecha_emision, @hora_emision)", connection))
             {
                 cmd.Parameters.AddWithValue("@codigo_boleto", boleto.codigoBoleto);
                 cmd.Parameters.AddWithValue("@fila", boleto.fila);
@@ -77,15 +77,16 @@ namespace Multicinex.Classes.Boleto
                 new SqlCommand("Set xact_abort on", connection).ExecuteNonQuery();
                 using SqlCommand command = connection.CreateCommand();
                 command.CommandType = CommandType.Text;
-                command.CommandText = "UPDATE BOLETO_SUR SET FILA = @fila, COLUMNA = @columna, FECHA_EMISION = @fecha_emision, HORA_EMISION = @hora_emision, CODIGO_SALA = @codigo_sala, CODIGO_FUNCION = @codigo_Funcion WHERE CODIGO_BOLETO = @codigo_Boleto AND NOMBRE_SUCURSAL = @nombre_Sucursal";
+                command.CommandText = "UPDATE V_BOLETO SET FILA = @fila, COLUMNA = @columna, FECHA_EMISION = @fecha_emision, HORA_EMISION = @hora_emision, CODIGO_SALA = @codigo_sala, CODIGO_FUNCION = @codigo_Funcion WHERE CODIGO_BOLETO = @codigo_Boleto AND NOMBRE_SUCURSAL = @nombre_Sucursal";
                 command.Parameters.AddWithValue("@codigo_boleto", boleto.codigoBoleto);
                 command.Parameters.AddWithValue("@fila", boleto.fila);
                 command.Parameters.AddWithValue("@columna", boleto.columna);
                 command.Parameters.AddWithValue("@nombre_Sucursal", boleto.nombreSucursal);
                 command.Parameters.AddWithValue("@codigo_sala", boleto.codigoSala);
-                command.Parameters.AddWithValue("@codigo_fucion", boleto.codigoFuncion);
+                command.Parameters.AddWithValue("@codigo_Funcion", boleto.codigoFuncion);
                 command.Parameters.AddWithValue("@fecha_emision", boleto.fechaEmision);
                 command.Parameters.AddWithValue("@hora_emision", boleto.horaEmision);
+                command.ExecuteNonQuery();
             }
             return result > 0;
         }
@@ -94,9 +95,10 @@ namespace Multicinex.Classes.Boleto
         {
             using var connection = new SqlConnection(_connectionString);
             connection.Open();
+            new SqlCommand("Set xact_abort on", connection).ExecuteNonQuery();
             using SqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.Text;
-            command.CommandText = "DELETE FROM BOLETO_SUR WHERE CODIGO_BOLETO = @codigo_boleto";
+            command.CommandText = "DELETE FROM V_BOLETO WHERE CODIGO_BOLETO = @codigo_boleto";
             command.Parameters.AddWithValue("@codigo_boleto", codigoBoleto);
 
             var result = 0;

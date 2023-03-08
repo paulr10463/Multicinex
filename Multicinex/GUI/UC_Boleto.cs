@@ -13,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Multicinex.Classes.Empleado;
 
 namespace Multicinex.GUI
 {
@@ -149,20 +150,6 @@ namespace Multicinex.GUI
             siticoneDataGridView1.Columns.Clear();
         }
 
-        private void siticoneButton2_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                BoletoMapper.EliminarBoleto(tbEliminarBoleto.Text);
-                MessageBox.Show("Boleto Eliminado con exito");
-                llenarTablaBoleto(BoletoMapper.ConsultarBoleto());
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show("No se pudo eliminar el boleto: " + ex.Message);
-            }
-        }
-
         private void tbConsultarBoleto_TextChanged(object sender, EventArgs e)
         {
             llenarTablaBoleto(buscarBoleto(tbConsultarBoleto.Text));
@@ -179,15 +166,58 @@ namespace Multicinex.GUI
         }
         public List<Boleto> buscarBoleto(string codigoBoleto)
         {
+            var filtroNombreSucursal = siticoneComboBox1.Text;
+            if (filtroNombreSucursal.Equals("Ambos"))
+                filtroNombreSucursal = "";
             List<Boleto> resultado = new List<Boleto>();
             foreach (Boleto item in BoletoMapper.ConsultarBoleto())
             {
-                if (item.codigoBoleto.Contains(codigoBoleto))
+                if (siticoneComboBox1.Text.Equals("Ambos"))
+                {
+                    if (item.codigoBoleto.Contains(codigoBoleto))
+                    {
+                        resultado.Add(item);
+                    }
+                }
+                else if (item.codigoBoleto.Contains(codigoBoleto) && item.nombreSucursal.Equals(siticoneComboBox1.Text))
                 {
                     resultado.Add(item);
                 }
             }
             return resultado;
+        }
+
+        private void siticoneDataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                Boleto boletoAEditar = new Boleto(
+                    siticoneDataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString(),
+                    siticoneDataGridView2.Rows[e.RowIndex].Cells[1].Value.ToString(),
+                    Convert.ToInt32(siticoneDataGridView2.Rows[e.RowIndex].Cells[2].Value.ToString()),
+                    siticoneDataGridView2.Rows[e.RowIndex].Cells[3].Value.ToString(),
+                    siticoneDataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString(),
+                    siticoneDataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString(),
+                    DateTime.Parse(siticoneDataGridView2.Rows[e.RowIndex].Cells[6].Value.ToString()),
+                    TimeSpan.Parse(siticoneDataGridView2.Rows[e.RowIndex].Cells[7].Value.ToString())
+                    );
+                EditarBoleto editarBoleto = new EditarBoleto(boletoAEditar);
+                editarBoleto.Visible = true;
+                editarBoleto.BringToFront();
+            }
+            catch(Exception ex) {
+                MessageBox.Show("No se pudo cargar "+ ex.Message);
+            }
+        }
+
+        private void siticoneButton4_Click(object sender, EventArgs e)
+        {
+            llenarTablaBoleto(buscarBoleto(tbConsultarBoleto.Text));
+        }
+
+        private void siticoneComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            llenarTablaBoleto(buscarBoleto(tbConsultarBoleto.Text));
         }
     }
 }
