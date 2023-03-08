@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Multicinex.Classes
+namespace Multicinex.Classes.Asignacion
 {
     internal class AsignacionMapper
     {
@@ -18,7 +18,7 @@ namespace Multicinex.Classes
             SqlConnection connection = new SqlConnection(_connectionString);
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand("SELECT * FROM ASIGNACION_SUR", connection);
+                SqlCommand command = new SqlCommand("SELECT * FROM V_ASIGNACION", connection);
                 SqlDataReader reader = command.ExecuteReader();
                 {
                     while (reader.Read())
@@ -34,8 +34,8 @@ namespace Multicinex.Classes
         {
             SqlConnection connection = new SqlConnection(_connectionString);
             connection.Open();
-
-            using (var cmd = new SqlCommand("INSERT INTO ASIGNACION_SUR (fecha, cc, nombre_sucursal, codigo_sala) values (@fecha, @cc, @nombre_sucursal, @codigo_sala)", connection))
+            new SqlCommand("Set xact_abort on", connection).ExecuteNonQuery();
+            using (var cmd = new SqlCommand("INSERT INTO V_ASIGNACION (fecha, cc, nombre_sucursal, codigo_sala) values (@fecha, @cc, @nombre_sucursal, @codigo_sala)", connection))
             {
                 cmd.Parameters.AddWithValue("@fecha", asignacion.fecha);
                 cmd.Parameters.AddWithValue("@cc", asignacion.cc);
@@ -45,31 +45,13 @@ namespace Multicinex.Classes
             }
         }
 
-        public static async Task<bool> ModificarAsignacino(Asignacion asignacion, DateTime fechaModificar)
-        {
-            int result = 0;
-            if (asignacion.cc != null && asignacion.nombreSucursal != null && asignacion.codigoSala != null)
-            {
-                await using SqlConnection connection = new SqlConnection(_connectionString);
-                connection.Open();
-                await using SqlCommand command = connection.CreateCommand();
-                command.CommandType = CommandType.Text;
-                command.CommandText = "UPDATE ASIGNACION_SUR SET fecha = @fechaModificar WHERE NOMBRE_SUCURSAL = @nombre_sucursal AND FECHA = @fecha AND CC = @cc AND CODIGO_SALA = @codigo_sala";
-                command.Parameters.AddWithValue("@fechaModificar", fechaModificar);
-                command.Parameters.AddWithValue("@nombre_sucursal", asignacion.nombreSucursal);
-                command.Parameters.AddWithValue("@fecha", asignacion.fecha);
-                command.Parameters.AddWithValue("@cc", asignacion.cc);
-                command.Parameters.AddWithValue("@codigo_sala", asignacion.codigoSala);
-                result = await command.ExecuteNonQueryAsync();
-            }
-            return result > 0;
-        }
+        
 
-        public static async Task<bool> EliminarAsignacion(Asignacion asignacion)
+        public static bool EliminarAsignacion(Asignacion asignacion)
         {
-            await using var connection = new SqlConnection(_connectionString);
+            using var connection = new SqlConnection(_connectionString);
             connection.Open();
-            await using SqlCommand command = connection.CreateCommand();
+            using SqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.Text;
             command.CommandText = "DELETE FROM ASIGNACION_SUR WHERE NOMBRE_SUCURSAL = @nombre_sucursal AND FECHA = @fecha AND CC = @cc AND CODIGO_SALA = @codigo_sala";
             command.Parameters.AddWithValue("@nombre_sucursal", asignacion.nombreSucursal);

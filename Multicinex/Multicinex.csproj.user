@@ -1,7 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="GUI\Editar Pelicula.cs">
+    <Compile Update="GUI\EditarAsignacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\Editar_Pelicula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\EditarBoleto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\EditarEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\EditarFuncion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\EditarSala.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="GUI\UC_Asignacion.cs">

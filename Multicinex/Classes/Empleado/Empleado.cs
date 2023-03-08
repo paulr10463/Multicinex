@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Multicinex.Classes
+namespace Multicinex.Classes.Empleado
 {
     public class Empleado
     {
@@ -20,7 +20,7 @@ namespace Multicinex.Classes
             this.cc = cc;
             this.nombre = nombre;
             this.apellido = apellido;
-            this.sueldo =  sueldo ?? 0;
+            this.sueldo = sueldo ?? 0;
             this.fechaContratacion = fechaContratacion;
             this.nombreSucursal = nombreSucursal;
         }

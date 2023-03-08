@@ -6,11 +6,22 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 
-namespace Multicinex.Classes
+namespace Multicinex.Classes.Pelicula
 {
     public class PeliculaMapper
     {
         private static readonly string _connectionString = "Data Source=DESKTOP-GLGPNIG; Initial Catalog= MulticinexSur; User ID=sa; Password=P@ssw0rd;";
+
+        public static void setDistributedTransactions()
+        {
+            SqlConnection connection = new SqlConnection(_connectionString);
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("Set xact_abort on", connection);
+                command.ExecuteNonQuery();
+            }
+            return ;
+        }
 
         public static List<Pelicula> ConsultarPelicula()
         {
@@ -35,7 +46,7 @@ namespace Multicinex.Classes
             // Conexión a BD
             using var connection = new SqlConnection(_connectionString);
             connection.Open();
-
+            SqlCommand command = new SqlCommand("Set xact_abort on", connection);
             using (var cmd = new SqlCommand("INSERT INTO PELICULA (codigo_pelicula, titulo, duracion, anio, sinopsis,nombre_director, apellido_director) VALUES (@codigo_pelicula, @titulo, @duracion, @anio, @sinopsis, @nombre_director, @apellido_director)", connection))
             {
                 cmd.Parameters.AddWithValue("@codigo_pelicula", pelicula.codigoPelicula);
@@ -71,7 +82,7 @@ namespace Multicinex.Classes
             return result > 0;
         }
 
-        
+
         public static bool EliminarPelicula(string codigoPelicula)
         {
             using var connection = new SqlConnection(_connectionString);
@@ -84,7 +95,7 @@ namespace Multicinex.Classes
 
             return result > 0;
         }
-        
+
 
     }
 }

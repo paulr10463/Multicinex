@@ -2,7 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 
-namespace Multicinex.Classes
+namespace Multicinex.Classes.Empleado
 {
     public class EmpleadoInfoMapper
     {
@@ -14,12 +14,12 @@ namespace Multicinex.Classes
             SqlConnection connection = new SqlConnection(_connectionString);
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand("SELECT * FROM \"EMPLEADO_INFO_SUR\"", connection);
+                SqlCommand command = new SqlCommand("SELECT * FROM V_EMPLEADO_INFO", connection);
                 SqlDataReader reader = command.ExecuteReader();
                 {
                     while (reader.Read())
                     {
-                        empleadosRegistrados.Add(new Empleado(reader.GetString(0), reader.GetString(1), reader.GetString(2), null, null ,reader.GetString(3)));
+                        empleadosRegistrados.Add(new Empleado(reader.GetString(0), reader.GetString(1), reader.GetString(2), null, null, reader.GetString(3)));
                     }
                 }
             }
@@ -30,8 +30,8 @@ namespace Multicinex.Classes
         {
             SqlConnection connection = new SqlConnection(_connectionString);
             connection.Open();
-
-            using (var cmd = new SqlCommand("INSERT INTO EMPLEADO_INFO_SUR (cc, nombre, apellido, nombre_sucursal) VALUES (@cc, @nombre, @apellido, @nombre_sucursal)", connection))
+            new SqlCommand("Set xact_abort on", connection).ExecuteNonQuery();
+            using (var cmd = new SqlCommand("INSERT INTO V_EMPLEADO_INFO (cc, nombre, apellido, nombre_sucursal) VALUES (@cc, @nombre, @apellido, @nombre_sucursal)", connection))
             {
                 cmd.Parameters.AddWithValue("@cc", empleadoInfo.cc);
                 cmd.Parameters.AddWithValue("@nombre", empleadoInfo.nombre);
@@ -48,21 +48,22 @@ namespace Multicinex.Classes
             }
         }
 
-        public static async Task<bool> ModificarEmpleadoInfo(Empleado empleadoInfo)
+        public static bool ModificarEmpleadoInfo(Empleado empleadoInfo)
         {
             int result = 0;
             if (empleadoInfo.cc != null && empleadoInfo.nombreSucursal != null)
             {
-                await using SqlConnection connection = new SqlConnection(_connectionString);
+                using SqlConnection connection = new SqlConnection(_connectionString);
                 connection.Open();
-                await using SqlCommand command = connection.CreateCommand();
+                new SqlCommand("Set xact_abort on", connection).ExecuteNonQuery();
+                using SqlCommand command = connection.CreateCommand();
                 command.CommandType = CommandType.Text;
-                command.CommandText = "UPDATE EMPLEADO_INFO_SUR SET nombre = @nombre, apellido = @apellido WHERE NOMBRE_SUCURSAL = @nombreSucursal AND CC = @cc";
+                command.CommandText = "UPDATE V_EMPLEADO_INFO SET nombre = @nombre, apellido = @apellido WHERE CC = @cc and NOMBRE_SUCURSAL= @nombreSucursal";
                 command.Parameters.AddWithValue("@nombre", empleadoInfo.nombre);
                 command.Parameters.AddWithValue("@apellido", empleadoInfo.apellido);
-                command.Parameters.AddWithValue("@nombre_sucursal", empleadoInfo.nombreSucursal);
                 command.Parameters.AddWithValue("@cc", empleadoInfo.cc);
-                result = await command.ExecuteNonQueryAsync();
+                command.Parameters.AddWithValue("@nombreSucursal", empleadoInfo.nombreSucursal);
+                result =  command.ExecuteNonQuery();
             }
             return result > 0;
         }
@@ -71,9 +72,10 @@ namespace Multicinex.Classes
         {
             using var connection = new SqlConnection(_connectionString);
             connection.Open();
+            new SqlCommand("Set xact_abort on", connection).ExecuteNonQuery();
             using SqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.Text;
-            command.CommandText = "DELETE FROM EMPLEADO_INFO_SUR WHERE CC = @cc";
+            command.CommandText = "DELETE FROM V_EMPLEADO_INFO WHERE CC = @cc";
             command.Parameters.AddWithValue("@cc", empleadoCC);
             var result = 0;
             try

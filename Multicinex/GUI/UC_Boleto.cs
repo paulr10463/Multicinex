@@ -1,4 +1,6 @@
-﻿using Multicinex.Classes;
+﻿using Multicinex.Classes.Boleto;
+using Multicinex.Classes.Funcion;
+using Multicinex.Classes;
 using Siticone.Desktop.UI.WinForms;
 using System;
 using System.Collections.Generic;

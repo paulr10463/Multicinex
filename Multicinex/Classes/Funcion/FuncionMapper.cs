@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace Multicinex.Classes
+namespace Multicinex.Classes.Funcion
 {
     internal class FuncionMapper
     {
@@ -19,7 +19,7 @@ namespace Multicinex.Classes
             SqlConnection connection = new SqlConnection(_connectionString);
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand("SELECT * FROM FUNCION_SUR", connection);
+                SqlCommand command = new SqlCommand("SELECT * FROM V_FUNCION", connection);
                 SqlDataReader reader = command.ExecuteReader();
                 {
                     while (reader.Read())
@@ -35,8 +35,8 @@ namespace Multicinex.Classes
         {
             SqlConnection connection = new SqlConnection(_connectionString);
             connection.Open();
-
-            using (var cmd = new SqlCommand("INSERT INTO FUNCION_SUR (codigo_pelicula, codigo_funcion, nombre_sucursal, codigo_sala,hora_inicio, hora_fin, fecha) values (@codigo_pelicula, @codigo_funcion, @nombre_sucursal, @codigo_sala, @hora_inicio, @hora_fin, @fecha) ", connection))
+            new SqlCommand("Set xact_abort on", connection).ExecuteNonQuery();
+            using (var cmd = new SqlCommand("INSERT INTO V_FUNCION (codigo_pelicula, codigo_funcion, nombre_sucursal, codigo_sala,hora_inicio, hora_fin, fecha) values (@codigo_pelicula, @codigo_funcion, @nombre_sucursal, @codigo_sala, @hora_inicio, @hora_fin, @fecha) ", connection))
             {
                 cmd.Parameters.AddWithValue("@codigo_pelicula", funcion.codigoPelicula);
                 cmd.Parameters.AddWithValue("@codigo_funcion", funcion.codigoFuncion);
@@ -49,22 +49,25 @@ namespace Multicinex.Classes
             }
         }
 
-        public static async Task<bool> ModificarFuncion(Funcion funcion)
+        public static bool ModificarFuncion(Funcion funcion)
         {
             int result = 0;
             if (funcion.nombreSucursal != null && funcion.codigoFuncion != null)
             {
-                await using SqlConnection connection = new SqlConnection(_connectionString);
+                using SqlConnection connection = new SqlConnection(_connectionString);
                 connection.Open();
-                await using SqlCommand command = connection.CreateCommand();
+                new SqlCommand("Set xact_abort on", connection).ExecuteNonQuery();
+                using SqlCommand command = connection.CreateCommand();
                 command.CommandType = CommandType.Text;
-                command.CommandText = "UPDATE FUNCION_SUR SET hora_inicio = @hora_inicio, hora_fin = @hora_fin, fecha = @fecha WHERE NOMBRE_SUCURSAL = @nombre_sucursal AND CODIGO_FUNCION = @codigo_funcion";
+                command.CommandText = "UPDATE V_FUNCION SET hora_inicio = @hora_inicio, codigo_pelicula = @codigo_pelicula, codigo_sala = @codigo_sala, hora_fin = @hora_fin, fecha = @fecha WHERE NOMBRE_SUCURSAL = @nombre_sucursal AND CODIGO_FUNCION = @codigo_funcion";
+                command.Parameters.AddWithValue("@codigo_pelicula", funcion.codigoPelicula);
+                command.Parameters.AddWithValue("@codigo_sala", funcion.codigoSala);
                 command.Parameters.AddWithValue("@hora_inicio", funcion.horaInicio);
                 command.Parameters.AddWithValue("@hora_fin", funcion.horaFin);
                 command.Parameters.AddWithValue("@fecha", funcion.fecha);
                 command.Parameters.AddWithValue("@nombre_sucursal", funcion.nombreSucursal);
                 command.Parameters.AddWithValue("@codigo_funcion", funcion.codigoFuncion);
-                result = await command.ExecuteNonQueryAsync();
+                result = command.ExecuteNonQuery();
             }
             return result > 0;
         }

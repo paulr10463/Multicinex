@@ -1,4 +1,5 @@
 ﻿using Multicinex.Classes;
+using Multicinex.Classes.Empleado;
 using Siticone.Desktop.UI.WinForms;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,7 @@ namespace Multicinex.GUI
         {
             InitializeComponent();
             salasRegistrados = SalaMapper.ConsultarSala();
-            llenarTablaSala(salasRegistrados);
+            llenarTablaSala(buscarSala(siticoneTextBox7.Text));
 
         }
 
@@ -36,12 +37,25 @@ namespace Multicinex.GUI
 
         public List<Sala> buscarSala(string  codigoSala)
         {
+            var filtroNombreSala = siticoneComboBox1.Text;
+            if (filtroNombreSala.Equals("Ambos"))
+                filtroNombreSala = "";
             List<Sala> resultado = new List<Sala>();
             foreach (Sala item in SalaMapper.ConsultarSala())
             {
-                if(item.codigoSala.Contains(codigoSala))
+                if (siticoneComboBox1.Text.Equals("Ambos"))
                 {
-                    resultado.Add(item);
+                    if (item.codigoSala.Contains(codigoSala))
+                    {
+                        resultado.Add(item);
+                    }
+                }
+                else
+                {
+                    if(item.codigoSala.Contains(codigoSala) && item.nombreSucursal.Equals(siticoneComboBox1.Text))
+                    {
+                        resultado.Add(item);
+                    }
                 }
             }
             return resultado;
@@ -67,7 +81,7 @@ namespace Multicinex.GUI
                 SalaMapper.IngresarSala(salaARegistrar);
                 MessageBox.Show("Sala añadida con exito");
                 vaciarCampos();
-                llenarTablaSala(SalaMapper.ConsultarSala());
+                llenarTablaSala(buscarSala(siticoneTextBox7.Text));
             }
             catch
             {
@@ -85,18 +99,34 @@ namespace Multicinex.GUI
             cbTipo.Text = string.Empty;
         }
 
-        private void siticoneButton2_Click(object sender, EventArgs e)
+
+        private void siticoneButton3_Click(object sender, EventArgs e)
+        {
+            llenarTablaSala(buscarSala(siticoneTextBox7.Text));
+        }
+
+        private void siticoneComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            llenarTablaSala(buscarSala(siticoneTextBox7.Text));
+        }
+
+        private void siticoneDataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
-                SalaMapper.EliminarSala(tbEliminarSala.Text);
-                MessageBox.Show("Registro Eliminado con exito");
+                Sala sala = new Sala(
+                    siticoneDataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(),
+                    siticoneDataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(),
+                    Convert.ToInt32(siticoneDataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString()),
+                    Convert.ToInt32(siticoneDataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString()),
+                    siticoneDataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString()
+                    );
+                EditarSala editarSala = new EditarSala(sala);
+                editarSala.Visible = true;
+                editarSala.BringToFront();
             }
-            catch (SqlException ex)
-            {
-                MessageBox.Show("No se pudo eliminar el registro: " + ex.Message);
-            }
-
+            catch { }
         }
+    
     }
 }

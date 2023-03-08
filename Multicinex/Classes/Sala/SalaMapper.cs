@@ -18,7 +18,7 @@ namespace Multicinex.Classes
             SqlConnection connection = new SqlConnection(_connectionString);
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand("SELECT * FROM SALA_SUR", connection);
+                SqlCommand command = new SqlCommand("SELECT * FROM V_SALA", connection);
                 SqlDataReader reader = command.ExecuteReader();
                 {
                     while (reader.Read())
@@ -35,8 +35,8 @@ namespace Multicinex.Classes
             // Conexión a BD
             using var connection = new SqlConnection(_connectionString);
             connection.Open();
-
-            using (var cmd = new SqlCommand("INSERT INTO SALA_SUR (nombre_sucursal, codigo_sala, capacidad_filas, capacidad_columnas, tipo) values (@nombre_sucursal, @codigo_sala, @capacidad_filas, @capacidad_columnas, @tipo);", connection))
+            new SqlCommand("Set xact_abort on", connection).ExecuteNonQuery();
+            using (var cmd = new SqlCommand("INSERT INTO V_SALA (nombre_sucursal, codigo_sala, capacidad_filas, capacidad_columnas, tipo) values (@nombre_sucursal, @codigo_sala, @capacidad_filas, @capacidad_columnas, @tipo);", connection))
             {
                 //(nombre_sucursal, codigo_sala, capacidad_filas, capacidad_columnas, tipo)
                 cmd.Parameters.AddWithValue("@nombre_sucursal", sala.nombreSucursal);
@@ -48,20 +48,23 @@ namespace Multicinex.Classes
             }
         }
 
-        public static async Task<bool> ModificarSala(Sala sala)
+        public static  bool ModificarSala(Sala sala)
         {
             int result = 0;
             if (sala.codigoSala != null)
             {
-                await using SqlConnection connection = new SqlConnection(_connectionString);
+                using SqlConnection connection = new SqlConnection(_connectionString);
                 connection.Open();
-                await using SqlCommand command = connection.CreateCommand();
+                new SqlCommand("Set xact_abort on", connection).ExecuteNonQuery();
+                using SqlCommand command = connection.CreateCommand();
                 command.CommandType = CommandType.Text;
-                command.CommandText = "UPDATE SALA_SUR SET tipo = @tipo WHERE NOMBRE_SUCURSAL = @nombre_sucursal AND CODIGO_SALA = @codigo_sala";
+                command.CommandText = "UPDATE V_SALA SET tipo = @tipo, capacidad_filas = @filas, capacidad_columnas=@columnas WHERE NOMBRE_SUCURSAL = @nombre_sucursal AND CODIGO_SALA = @codigo_sala";
                 command.Parameters.AddWithValue("@tipo", sala.tipo);
+                command.Parameters.AddWithValue("@filas", sala.capacidadFilas);
+                command.Parameters.AddWithValue("@columnas", sala.capacidadColumnas);
                 command.Parameters.AddWithValue("@nombre_sucursal", sala.nombreSucursal);
                 command.Parameters.AddWithValue("@codigo_sala", sala.codigoSala);
-                result = await command.ExecuteNonQueryAsync();
+                result = command.ExecuteNonQuery();
             }
             return result > 0;
         }
@@ -71,6 +74,7 @@ namespace Multicinex.Classes
         {
             using var connection = new SqlConnection(_connectionString);
             connection.Open();
+            new SqlCommand("Set xact_abort on", connection).ExecuteNonQuery();
             using SqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.Text;
             command.CommandText = "DELETE FROM SALA_SUR WHERE NOMBRE_SUCURSAL = @nombre_sucursal";

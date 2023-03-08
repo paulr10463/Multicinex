@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Multicinex.Classes
+namespace Multicinex.Classes.Sucursal
 {
     public class Sucursal
     {

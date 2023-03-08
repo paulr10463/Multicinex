@@ -1,12 +1,13 @@
 ﻿
 using System.Data.SqlClient;
-using Multicinex.Classes;
+using Multicinex.Classes.Pelicula;
 
 namespace Multicinex.GUI
 {
     public partial class UC_Pelicula : UserControl
     {
         List<Pelicula> peliculasRegistradas;
+        public static DataGridView data;
         public UC_Pelicula()
         {
             InitializeComponent();
@@ -16,6 +17,7 @@ namespace Multicinex.GUI
 
         private void siticoneButton1_Click(object sender, EventArgs e)
         {
+            data = siticoneDataGridView1;
             Pelicula pelicula = new Pelicula(
                 tbcodPelicula.Text,
                 tbTitulo.Text,
@@ -55,6 +57,7 @@ namespace Multicinex.GUI
             llenarTablaPelicula(buscarPelicula(siticoneTextBox7.Text));
         }
 
+
         public void llenarTablaPelicula(List<Pelicula> listaPelicula)
         {
             siticoneDataGridView1.Rows.Clear();
@@ -82,15 +85,7 @@ namespace Multicinex.GUI
         //Eliminar Pelicula
         private void siticoneButton2_Click(object sender, EventArgs e)
         {
-            try
-            {
-                 PeliculaMapper.EliminarPelicula(siticoneTextBox6.Text);
-                 MessageBox.Show("Registro Eliminado con exito");
-            }
-            catch(SqlException ex)
-            {
-                MessageBox.Show("No se pudo eliminar el registro: " + ex.Message);
-            }
+
 
         }
 
@@ -99,27 +94,33 @@ namespace Multicinex.GUI
             llenarTablaPelicula(buscarPelicula(siticoneTextBox7.Text));
         }
 
-        private void siticoneDataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        { 
-            
-        }
-
         private void siticoneDataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            try
+            {
+                Pelicula peliculaAEditar = new Pelicula(
+                    siticoneDataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(),
+                    siticoneDataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(),
+                    Convert.ToInt32(siticoneDataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString()),
+                    Convert.ToInt32(siticoneDataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString()),
+                    siticoneDataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString(),
+                    siticoneDataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString(),
+                    siticoneDataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString()
+                    );
+                Editar_Pelicula editar_Pelicula = new Editar_Pelicula(peliculaAEditar);
+                editar_Pelicula.Visible = true;
+                editar_Pelicula.BringToFront();
+            }
+            catch
+            {
 
-            Pelicula peliculaAEditar = new Pelicula(
-                siticoneDataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(),
-                siticoneDataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(),
-                Convert.ToInt32(siticoneDataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString()),
-                Convert.ToInt32(siticoneDataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString()),
-                siticoneDataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString(),
-                siticoneDataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString(),
-                siticoneDataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString()
-                );
-            Editar_Pelicula editar_Pelicula = new Editar_Pelicula(peliculaAEditar);
-            editar_Pelicula.Visible = true;
-            editar_Pelicula.BringToFront();
+            }
 
+        }
+
+        private void siticoneButton3_Click(object sender, EventArgs e)
+        {
+            llenarTablaPelicula(buscarPelicula(siticoneTextBox7.Text));
         }
     }
 }

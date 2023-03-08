@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Multicinex.Classes
+namespace Multicinex.Classes.Boleto
 {
     internal class BoletoMapper
     {
@@ -18,7 +18,7 @@ namespace Multicinex.Classes
             SqlConnection connection = new SqlConnection(_connectionString);
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand("SELECT * FROM BOLETO_SUR", connection);
+                SqlCommand command = new SqlCommand("SELECT * FROM V_BOLETO", connection);
                 SqlDataReader reader = command.ExecuteReader();
                 {
                     while (reader.Read())
@@ -27,7 +27,7 @@ namespace Multicinex.Classes
                     }
                 }
             }
-            return boletosRegistrados;
+            return boletosRegistrados; 
         }
 
         public static List<Boleto> ConsultarBoletoFuncion(string codFuncion)
@@ -36,7 +36,7 @@ namespace Multicinex.Classes
             SqlConnection connection = new SqlConnection(_connectionString);
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand("SELECT * FROM BOLETO_SUR WHERE CODIGO_FUNCION = '"+codFuncion+"'", connection);
+                SqlCommand command = new SqlCommand("SELECT * FROM BOLETO_SUR WHERE CODIGO_FUNCION = '" + codFuncion + "'", connection);
                 SqlDataReader reader = command.ExecuteReader();
                 {
                     while (reader.Read())
@@ -52,14 +52,14 @@ namespace Multicinex.Classes
         {
             SqlConnection connection = new SqlConnection(_connectionString);
             connection.Open();
-
+            new SqlCommand("Set xact_abort on", connection).ExecuteNonQuery();
             using (var cmd = new SqlCommand("INSERT INTO BOLETO_SUR values (@codigo_boleto, @fila, @columna, @nombre_sucursal, @codigo_sala, @codigo_funcion, @fecha_emision, @hora_emision)", connection))
             {
-                cmd.Parameters.AddWithValue("@codigo_boleto", boleto.codigoBoleto );
+                cmd.Parameters.AddWithValue("@codigo_boleto", boleto.codigoBoleto);
                 cmd.Parameters.AddWithValue("@fila", boleto.fila);
                 cmd.Parameters.AddWithValue("@columna", boleto.columna);
                 cmd.Parameters.AddWithValue("@nombre_Sucursal", boleto.nombreSucursal);
-                cmd.Parameters.AddWithValue("@codigo_sala", boleto.codigoSala );
+                cmd.Parameters.AddWithValue("@codigo_sala", boleto.codigoSala);
                 cmd.Parameters.AddWithValue("@codigo_funcion", boleto.codigoFuncion);
                 cmd.Parameters.AddWithValue("@fecha_emision", boleto.fechaEmision);
                 cmd.Parameters.AddWithValue("@hora_emision", boleto.horaEmision);
@@ -67,14 +67,15 @@ namespace Multicinex.Classes
             }
         }
 
-        public static async Task<bool> ModificarBoleto(Boleto boleto)
+        public static bool ModificarBoleto(Boleto boleto)
         {
             int result = 0;
             if (boleto.codigoBoleto != null && boleto.nombreSucursal != null)
             {
-                await using SqlConnection connection = new SqlConnection(_connectionString);
+                using SqlConnection connection = new SqlConnection(_connectionString);
                 connection.Open();
-                await using SqlCommand command = connection.CreateCommand();
+                new SqlCommand("Set xact_abort on", connection).ExecuteNonQuery();
+                using SqlCommand command = connection.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = "UPDATE BOLETO_SUR SET FILA = @fila, COLUMNA = @columna, FECHA_EMISION = @fecha_emision, HORA_EMISION = @hora_emision, CODIGO_SALA = @codigo_sala, CODIGO_FUNCION = @codigo_Funcion WHERE CODIGO_BOLETO = @codigo_Boleto AND NOMBRE_SUCURSAL = @nombre_Sucursal";
                 command.Parameters.AddWithValue("@codigo_boleto", boleto.codigoBoleto);
@@ -111,5 +112,5 @@ namespace Multicinex.Classes
         }
     }
 
-    
+
 }

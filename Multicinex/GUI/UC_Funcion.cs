@@ -1,4 +1,5 @@
-﻿using Multicinex.Classes;
+﻿using Multicinex.Classes.Empleado;
+using Multicinex.Classes.Funcion;
 using Siticone.Desktop.UI.WinForms;
 using System;
 using System.Collections.Generic;
@@ -19,8 +20,7 @@ namespace Multicinex.GUI
         public UC_Funcion()
         {
             InitializeComponent();
-            funcionesRegistradas = FuncionMapper.ConsultarFuncion();
-            llenarTablaFuncion(funcionesRegistradas);
+            llenarTablaFuncion(buscarFuncion(tbcodFuncion.Text));
         }
 
         private void siticoneButton1_Click(object sender, EventArgs e)
@@ -39,7 +39,7 @@ namespace Multicinex.GUI
                 FuncionMapper.IngresarFuncion(funcionARegistrar);
                 MessageBox.Show("Funcion añadida con exito");
                 vaciarCampos();
-                llenarTablaFuncion(FuncionMapper.ConsultarFuncion());
+                llenarTablaFuncion(buscarFuncion(tbcodFuncion.Text));
             }
             catch
             {
@@ -73,30 +73,60 @@ namespace Multicinex.GUI
         }
         public List<Funcion> buscarFuncion(string codigoFuncion)
         {
+            var filtroNombreSucursal = siticoneComboBox1.Text;
+            if (filtroNombreSucursal.Equals("Ambos"))
+                filtroNombreSucursal = "";
             List<Funcion> resultado = new List<Funcion>();
             foreach (Funcion item in FuncionMapper.ConsultarFuncion())
             {
-                if (item.codigoFuncion.Contains(codigoFuncion))
+                if (siticoneComboBox1.Text.Equals("Ambos"))
                 {
-                    resultado.Add(item);
+                    if (item.codigoFuncion.Contains(codigoFuncion))
+                    {
+                        resultado.Add(item);
+                    }
+                }
+                else
+                {
+                    if (item.codigoFuncion.Contains(codigoFuncion) && item.nombreSucursal.Equals(siticoneComboBox1.Text))
+                    {
+                        resultado.Add(item);
+                    }
                 }
             }
             return resultado;
 
         }
 
-        private void siticoneButton2_Click(object sender, EventArgs e)
+
+        private void siticoneDataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
-                FuncionMapper.EliminarFuncion(tbEliminarFuncion.Text);
-                MessageBox.Show("Registro Eliminado con exito");
-                llenarTablaFuncion(FuncionMapper.ConsultarFuncion());
+                Funcion funcionAEditar = new Funcion(
+                    siticoneDataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(),
+                    siticoneDataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(),
+                    siticoneDataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString(),
+                    siticoneDataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString(),
+                    DateTime.Parse(siticoneDataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString()),
+                    DateTime.Parse(siticoneDataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString()),
+                    DateTime.Parse(siticoneDataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString())
+                    );
+                EditarFuncion editarFuncion = new EditarFuncion(funcionAEditar);
+                editarFuncion.Visible = true;
+                editarFuncion.BringToFront();
             }
-            catch (SqlException ex)
-            {
-                MessageBox.Show("No se pudo eliminar el registro: " + ex.Message);
-            }
+            catch { }
+        }
+
+        private void siticoneButton3_Click(object sender, EventArgs e)
+        {
+            llenarTablaFuncion(buscarFuncion(tbConsultarFuncion.Text));
+        }
+
+        private void siticoneComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            llenarTablaFuncion(buscarFuncion(tbConsultarFuncion.Text));
         }
     }
 }

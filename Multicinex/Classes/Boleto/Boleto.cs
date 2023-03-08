@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Multicinex.Classes
+namespace Multicinex.Classes.Boleto
 {
     public class Boleto
     {
@@ -38,16 +38,16 @@ namespace Multicinex.Classes
             this.codigoSala = codigoSala;
             this.codigoFuncion = codigoFuncion;
             this.fechaEmision = fechaEmision;
-            this.horaEmision = fechaEmision.TimeOfDay;
+            horaEmision = fechaEmision.TimeOfDay;
         }
         public override string ToString()
         {
-            String resumen =
-            "      Boleto: " + this.codigoBoleto + "\n"+
-            "      Código Sala: " + this.codigoSala + "\n"+
-            "      Codigo Funcion: " + this.codigoFuncion + "\n"+
-            "      Fecha Emision: " + this.fechaEmision.Date.ToShortDateString() + "\n"+
-            "      Hora Emision: " + this.horaEmision.ToString() + "\n";
+            string resumen =
+            "      Boleto: " + codigoBoleto + "\n" +
+            "      Código Sala: " + codigoSala + "\n" +
+            "      Codigo Funcion: " + codigoFuncion + "\n" +
+            "      Fecha Emision: " + fechaEmision.Date.ToShortDateString() + "\n" +
+            "      Hora Emision: " + horaEmision.ToString() + "\n";
             return "";
         }
     }
