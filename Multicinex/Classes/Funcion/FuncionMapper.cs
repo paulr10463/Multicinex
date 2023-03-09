@@ -6,12 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using Multicinex.Classes.Conexion;
 
 namespace Multicinex.Classes.Funcion
 {
     internal class FuncionMapper
     {
-        private static readonly string _connectionString = "Data Source=DESKTOP-GLGPNIG; Initial Catalog= MulticinexSur; User ID=sa; Password=P@ssw0rd;";
+        private static readonly string _connectionString = Connection.getConnectionString();
 
         public static List<Funcion> ConsultarFuncion()
         {

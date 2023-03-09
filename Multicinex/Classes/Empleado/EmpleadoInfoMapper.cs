@@ -1,12 +1,13 @@
 ﻿using Multicinex.GUI;
 using System.Data;
 using System.Data.SqlClient;
+using Multicinex.Classes.Conexion;
 
 namespace Multicinex.Classes.Empleado
 {
     public class EmpleadoInfoMapper
     {
-        private static readonly string _connectionString = "Data Source=DESKTOP-GLGPNIG; Initial Catalog= MulticinexSur; User ID=sa; Password=P@ssw0rd;";
+        private static readonly string _connectionString = Connection.getConnectionString();
 
         public static List<Empleado> ConsultarEmpleado()
         {

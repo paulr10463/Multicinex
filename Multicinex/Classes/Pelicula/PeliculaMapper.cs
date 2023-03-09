@@ -5,12 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using Multicinex.Classes.Conexion;
 
 namespace Multicinex.Classes.Pelicula
 {
     public class PeliculaMapper
     {
-        private static readonly string _connectionString = "Data Source=DESKTOP-GLGPNIG; Initial Catalog= MulticinexSur; User ID=sa; Password=P@ssw0rd;";
+        private static readonly string _connectionString = Connection.getConnectionString();
 
         public static void setDistributedTransactions()
         {

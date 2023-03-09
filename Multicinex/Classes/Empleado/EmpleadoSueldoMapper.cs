@@ -5,12 +5,13 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Multicinex.Classes.Conexion;
 
 namespace Multicinex.Classes.Empleado
 {
     public class EmpleadoSueldoMapper
     {
-        private static readonly string _connectionString = "Data Source=DESKTOP-GLGPNIG; Initial Catalog= MulticinexSur; User ID=sa; Password=P@ssw0rd;";
+        private static readonly string _connectionString = Connection.getConnectionString();
 
         public static List<EmpleadoSueldo> ConsultarEmpleadoSueldo()
         {

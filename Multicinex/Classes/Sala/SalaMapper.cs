@@ -5,13 +5,14 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Multicinex.Classes.Conexion;
 
 namespace Multicinex.Classes
 {
     
     public class SalaMapper
     {
-        private static readonly string _connectionString = "Data Source=DESKTOP-GLGPNIG; Initial Catalog= MulticinexSur; User ID=sa; Password=P@ssw0rd;";
+        private static readonly string _connectionString = Connection.getConnectionString();
         public static List<Sala> ConsultarSala()
         {
             List<Sala> empleadosRegistrados = new List<Sala>();
