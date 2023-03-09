@@ -122,6 +122,24 @@ namespace Multicinex.GUI
         {
             llenarTablaPelicula(buscarPelicula(siticoneTextBox7.Text));
         }
+
+        public void llenarTablaEstadisticas(List<Pelicula> listaPelicula)
+        {
+            siticoneDataGridView1.Rows.Clear();
+            foreach (Pelicula item in listaPelicula)
+            {
+                siticoneDataGridView1.Rows.Add(item.codigoPelicula, item.titulo, item.duracion, item.anio, item.nombreDirector, item.apellidoDirector, item.sinopsis);
+            }
+
+        }
+        private void siticoneButton2_Click_1(object sender, EventArgs e)
+        {
+            siticoneDataGridView2.Rows.Clear();
+            foreach (Estadisticas item in EstadisticasMapper.ConsultarEstadisticas())
+            {
+                siticoneDataGridView2.Rows.Add(item.nombrePelicula, item.cantidadBoletos);
+            }
+        }
     }
 }
     

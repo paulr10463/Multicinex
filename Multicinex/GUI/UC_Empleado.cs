@@ -150,5 +150,26 @@ namespace Multicinex.GUI
         {
             llenarTablaInfoEmpleado(buscarEmpleadoInfo(siticoneTextBox7.Text));
         }
+
+        private void siticoneDataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                EmpleadoSueldo empleadoSueldo = new EmpleadoSueldo(
+                    siticoneDataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString(),
+                    Convert.ToDouble(siticoneDataGridView2.Rows[e.RowIndex].Cells[1].Value.ToString()),
+                    DateTime.Parse(siticoneDataGridView2.Rows[e.RowIndex].Cells[2].Value.ToString())
+                    );
+                EditarEmpleadoSueldo editarEmpleadoSueldo = new EditarEmpleadoSueldo(empleadoSueldo);
+                editarEmpleadoSueldo.Visible = true;
+                editarEmpleadoSueldo.BringToFront();
+            }
+            catch { }
+        }
+
+        private void siticoneButton2_Click(object sender, EventArgs e)
+        {
+            llenarTablaSueldoEmpleado(buscarEmpleadoSueldo(siticoneTextBox4.Text));
+        }
     }
 }

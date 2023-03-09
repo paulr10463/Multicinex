@@ -4,6 +4,9 @@
     <Compile Update="GUI\EditarAsignacion.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="GUI\EditarEmpleadoSueldo.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="GUI\Editar_Pelicula.cs">
       <SubType>Form</SubType>
     </Compile>

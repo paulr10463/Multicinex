@@ -67,6 +67,7 @@
             this.Sueldo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.siticoneTextBox4 = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            this.siticoneButton2 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.siticoneTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -505,6 +506,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.siticoneButton2);
             this.tabPage4.Controls.Add(this.siticoneHtmlLabel9);
             this.tabPage4.Controls.Add(this.siticoneDataGridView2);
             this.tabPage4.Controls.Add(this.siticoneTextBox4);
@@ -520,11 +522,11 @@
             // 
             this.siticoneHtmlLabel9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.siticoneHtmlLabel9.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel9.Location = new System.Drawing.Point(335, 41);
+            this.siticoneHtmlLabel9.Location = new System.Drawing.Point(252, 37);
             this.siticoneHtmlLabel9.Name = "siticoneHtmlLabel9";
-            this.siticoneHtmlLabel9.Size = new System.Drawing.Size(19, 17);
+            this.siticoneHtmlLabel9.Size = new System.Drawing.Size(33, 24);
             this.siticoneHtmlLabel9.TabIndex = 12;
-            this.siticoneHtmlLabel9.Text = "CC";
+            this.siticoneHtmlLabel9.Text = "CC ";
             // 
             // siticoneDataGridView2
             // 
@@ -581,6 +583,7 @@
             this.siticoneDataGridView2.ThemeStyle.RowsStyle.Height = 25;
             this.siticoneDataGridView2.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.siticoneDataGridView2.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.siticoneDataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.siticoneDataGridView2_CellClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -609,7 +612,7 @@
             this.siticoneTextBox4.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.siticoneTextBox4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.siticoneTextBox4.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneTextBox4.Location = new System.Drawing.Point(391, 32);
+            this.siticoneTextBox4.Location = new System.Drawing.Point(308, 31);
             this.siticoneTextBox4.Name = "siticoneTextBox4";
             this.siticoneTextBox4.PasswordChar = '\0';
             this.siticoneTextBox4.PlaceholderText = "";
@@ -617,6 +620,23 @@
             this.siticoneTextBox4.Size = new System.Drawing.Size(200, 36);
             this.siticoneTextBox4.TabIndex = 7;
             this.siticoneTextBox4.TextChanged += new System.EventHandler(this.siticoneTextBox4_TextChanged);
+            // 
+            // siticoneButton2
+            // 
+            this.siticoneButton2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.siticoneButton2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.siticoneButton2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.siticoneButton2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.siticoneButton2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.siticoneButton2.FillColor = System.Drawing.Color.White;
+            this.siticoneButton2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.siticoneButton2.ForeColor = System.Drawing.Color.White;
+            this.siticoneButton2.Image = global::Multicinex.Properties.Resources.recargar;
+            this.siticoneButton2.Location = new System.Drawing.Point(533, 33);
+            this.siticoneButton2.Name = "siticoneButton2";
+            this.siticoneButton2.Size = new System.Drawing.Size(35, 30);
+            this.siticoneButton2.TabIndex = 14;
+            this.siticoneButton2.Click += new System.EventHandler(this.siticoneButton2_Click);
             // 
             // UC_Empleado
             // 
@@ -673,5 +693,6 @@
         private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton3;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel10;
         private Siticone.Desktop.UI.WinForms.SiticoneComboBox siticoneComboBox1;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton2;
     }
 }

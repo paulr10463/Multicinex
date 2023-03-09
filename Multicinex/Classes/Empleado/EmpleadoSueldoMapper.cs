@@ -47,20 +47,20 @@ namespace Multicinex.Classes.Empleado
             }
         }
 
-        public static async Task<bool> ModificarEmpleadoSueldo(EmpleadoSueldo empleadoSueldo)
+        public static bool ModificarEmpleadoSueldo(EmpleadoSueldo empleadoSueldo)
         {
             int result = 0;
             if (empleadoSueldo.cc != null)
             {
-                await using SqlConnection connection = new SqlConnection(_connectionString);
+                using SqlConnection connection = new SqlConnection(_connectionString);
                 connection.Open();
-                await using SqlCommand command = connection.CreateCommand();
+                using SqlCommand command = connection.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = "UPDATE EMPLEADO_SUELDO SET sueldo = @sueldo, fecha_contratacion = @fecha_contratacion WHERE CC = @cc";
                 command.Parameters.AddWithValue("@cc", empleadoSueldo.cc);
                 command.Parameters.AddWithValue("@sueldo", empleadoSueldo.sueldo);
                 command.Parameters.AddWithValue("@fecha_contratacion", empleadoSueldo.fechaContratacion);
-                result = await command.ExecuteNonQueryAsync();
+                result = command.ExecuteNonQuery();
             }
             return result > 0;
         }
