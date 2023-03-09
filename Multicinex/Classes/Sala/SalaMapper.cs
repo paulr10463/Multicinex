@@ -71,15 +71,16 @@ namespace Multicinex.Classes
         }
 
 
-        public static bool EliminarSala(string codigoSala)
+        public static bool EliminarSala(string codigoSala, string nombreSucursal)
         {
             using var connection = new SqlConnection(_connectionString);
             connection.Open();
             new SqlCommand("Set xact_abort on", connection).ExecuteNonQuery();
             using SqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.Text;
-            command.CommandText = "DELETE FROM SALA_SUR WHERE NOMBRE_SUCURSAL = @nombre_sucursal";
+            command.CommandText = "DELETE FROM V_SALA WHERE CODIGO_SALA = @codigo_sala AND NOMBRE_SUCURSAL = @nombre_sucursal";
             command.Parameters.AddWithValue("@codigo_sala", codigoSala);
+            command.Parameters.AddWithValue("@nombre_sucursal", nombreSucursal);
             var result = 0;
             try
             {

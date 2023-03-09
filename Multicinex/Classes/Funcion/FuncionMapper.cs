@@ -73,15 +73,15 @@ namespace Multicinex.Classes.Funcion
             return result > 0;
         }
 
-        public static bool EliminarFuncion(string codigoFuncion)
+        public static bool EliminarFuncion(string codigoFuncion, string nombreSucursal)
         {
             using var connection = new SqlConnection(_connectionString);
             connection.Open();
             using SqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.Text;
-            command.CommandText = "DELETE FROM FUNCION_SUR WHERE CODIGO_FUNCION = @codigo_funcion";
+            command.CommandText = "DELETE FROM V_FUNCION WHERE CODIGO_FUNCION = @codigo_funcion AND NOMBRE_SUCURSAL = @nombre_sucursal";
             command.Parameters.AddWithValue("@codigo_funcion", codigoFuncion);
-
+            command.Parameters.AddWithValue("@codigo_funcion", nombreSucursal);
             var result = 0;
             try
             {

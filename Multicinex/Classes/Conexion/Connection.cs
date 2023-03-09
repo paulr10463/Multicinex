@@ -8,7 +8,7 @@ namespace Multicinex.Classes.Conexion
 {
     public class Connection
     {
-        private static readonly string _connectionString = "Data Source=DESKTOP-GLGPNIG; Initial Catalog= MulticinexSur; User ID=sa; Password=P@ssw0rd;";
+        private static readonly string _connectionString = "Data Source=WIN-B28AMM5IUBR; Initial Catalog= MulticinexSur; User ID=sa; Password=P@ssw0rd;";
 
         public static string getConnectionString()
         {

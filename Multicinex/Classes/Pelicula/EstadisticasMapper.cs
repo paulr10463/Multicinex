@@ -19,7 +19,7 @@ namespace Multicinex.Classes.Pelicula
             {
                 connection.Open();
                 new SqlCommand("Set xact_abort on", connection);
-                SqlCommand command = new SqlCommand("EXECUTE [DESKTOP-CSTO].MulticinexNorte.dbo.SPBoletosVendidosPorPelicula", connection);
+                SqlCommand command = new SqlCommand("EXECUTE [WIN-EB62IOPOT65].MulticinexNorte.dbo.SPBoletosVendidosPorPelicula", connection);
                 SqlDataReader reader = command.ExecuteReader();
                 {
                     while (reader.Read())

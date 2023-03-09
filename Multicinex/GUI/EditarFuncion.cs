@@ -30,7 +30,7 @@ namespace Multicinex.GUI
         {
             try
             {
-                FuncionMapper.EliminarFuncion(tbcodFuncion.Text);
+                FuncionMapper.EliminarFuncion(tbcodFuncion.Text, cbSucursal.Text);
                 MessageBox.Show("Registro Eliminado con exito");
                 this.Dispose();
 

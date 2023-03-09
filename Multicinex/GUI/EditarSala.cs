@@ -50,7 +50,7 @@ namespace Multicinex.GUI
         {
             try
             {
-                SalaMapper.EliminarSala(tbcodigoSala.Text);
+                SalaMapper.EliminarSala(tbcodigoSala.Text,cbSucursal.Text);
                 MessageBox.Show("Registro Eliminado con exito");
                 this.Dispose();
             }

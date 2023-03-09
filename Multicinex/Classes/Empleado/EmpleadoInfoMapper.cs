@@ -40,7 +40,7 @@ namespace Multicinex.Classes.Empleado
                 cmd.Parameters.AddWithValue("@nombre_sucursal", empleadoInfo.nombreSucursal);
                 cmd.ExecuteNonQuery();
             }
-            using (var cmd = new SqlCommand("INSERT INTO EMPLEADO_SUELDO VALUES (@cc,@sueldo, @fecha_contratacion)", connection))
+            using (var cmd = new SqlCommand("INSERT INTO [WIN-B28AMM5IUBR].MulticinexSur.dbo.EMPLEADO_SUELDO VALUES (@cc,@sueldo, @fecha_contratacion)", connection))
             {
                 cmd.Parameters.AddWithValue("@cc", empleadoInfo.cc);
                 cmd.Parameters.AddWithValue("@sueldo", empleadoInfo.sueldo);
@@ -76,7 +76,7 @@ namespace Multicinex.Classes.Empleado
             new SqlCommand("Set xact_abort on", connection).ExecuteNonQuery();
             using SqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.Text;
-            command.CommandText = "DELETE FROM V_EMPLEADO_INFO WHERE CC = @cc";
+            command.CommandText = "EXECUTE [WIN-B28AMM5IUBR].MulticinexSur.dbo.SPEliminarEmpleado @cc;";
             command.Parameters.AddWithValue("@cc", empleadoCC);
             var result = 0;
             try
