@@ -55,7 +55,7 @@ namespace Multicinex.GUI
             try
             {
                 FuncionMapper.ModificarFuncion(funcionARegistrar);
-                MessageBox.Show("Funcion añadida con exito");
+                MessageBox.Show("Funcion modificada con exito");
                 this.Dispose();
             }
             catch (Exception ex)

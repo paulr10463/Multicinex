@@ -35,7 +35,6 @@ namespace Multicinex.Classes.Asignacion
         {
             SqlConnection connection = new SqlConnection(_connectionString);
             connection.Open();
-            new SqlCommand("Set xact_abort on", connection).ExecuteNonQuery();
             using (var cmd = new SqlCommand("INSERT INTO V_ASIGNACION (fecha, cc, nombre_sucursal, codigo_sala) values (@fecha, @cc, @nombre_sucursal, @codigo_sala)", connection))
             {
                 cmd.Parameters.AddWithValue("@fecha", asignacion.fecha);
@@ -54,7 +53,7 @@ namespace Multicinex.Classes.Asignacion
             connection.Open();
             using SqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.Text;
-            command.CommandText = "DELETE FROM ASIGNACION_SUR WHERE NOMBRE_SUCURSAL = @nombre_sucursal AND FECHA = @fecha AND CC = @cc AND CODIGO_SALA = @codigo_sala";
+            command.CommandText = "DELETE FROM V_ASIGNACION WHERE NOMBRE_SUCURSAL = @nombre_sucursal AND FECHA = @fecha AND CC = @cc AND CODIGO_SALA = @codigo_sala";
             command.Parameters.AddWithValue("@nombre_sucursal", asignacion.nombreSucursal);
             command.Parameters.AddWithValue("@fecha", asignacion.fecha);
             command.Parameters.AddWithValue("@cc", asignacion.cc);

@@ -36,7 +36,6 @@ namespace Multicinex.Classes.Funcion
         {
             SqlConnection connection = new SqlConnection(_connectionString);
             connection.Open();
-            new SqlCommand("Set xact_abort on", connection).ExecuteNonQuery();
             using (var cmd = new SqlCommand("INSERT INTO V_FUNCION (codigo_pelicula, codigo_funcion, nombre_sucursal, codigo_sala,hora_inicio, hora_fin, fecha) values (@codigo_pelicula, @codigo_funcion, @nombre_sucursal, @codigo_sala, @hora_inicio, @hora_fin, @fecha) ", connection))
             {
                 cmd.Parameters.AddWithValue("@codigo_pelicula", funcion.codigoPelicula);
@@ -57,7 +56,6 @@ namespace Multicinex.Classes.Funcion
             {
                 using SqlConnection connection = new SqlConnection(_connectionString);
                 connection.Open();
-                new SqlCommand("Set xact_abort on", connection).ExecuteNonQuery();
                 using SqlCommand command = connection.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = "UPDATE V_FUNCION SET hora_inicio = @hora_inicio, codigo_pelicula = @codigo_pelicula, codigo_sala = @codigo_sala, hora_fin = @hora_fin, fecha = @fecha WHERE NOMBRE_SUCURSAL = @nombre_sucursal AND CODIGO_FUNCION = @codigo_funcion";
@@ -81,7 +79,7 @@ namespace Multicinex.Classes.Funcion
             command.CommandType = CommandType.Text;
             command.CommandText = "DELETE FROM V_FUNCION WHERE CODIGO_FUNCION = @codigo_funcion AND NOMBRE_SUCURSAL = @nombre_sucursal";
             command.Parameters.AddWithValue("@codigo_funcion", codigoFuncion);
-            command.Parameters.AddWithValue("@codigo_funcion", nombreSucursal);
+            command.Parameters.AddWithValue("@nombre_sucursal", nombreSucursal);
             var result = 0;
             try
             {

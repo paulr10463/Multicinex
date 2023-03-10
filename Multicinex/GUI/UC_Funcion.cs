@@ -43,7 +43,7 @@ namespace Multicinex.GUI
             }
             catch
             {
-                MessageBox.Show("No se pudo añadir la pelicula");
+                MessageBox.Show("No se pudo añadir la función");
             }
 
         }

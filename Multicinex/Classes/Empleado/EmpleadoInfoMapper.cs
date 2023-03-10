@@ -31,7 +31,6 @@ namespace Multicinex.Classes.Empleado
         {
             SqlConnection connection = new SqlConnection(_connectionString);
             connection.Open();
-            new SqlCommand("Set xact_abort on", connection).ExecuteNonQuery();
             using (var cmd = new SqlCommand("INSERT INTO V_EMPLEADO_INFO (cc, nombre, apellido, nombre_sucursal) VALUES (@cc, @nombre, @apellido, @nombre_sucursal)", connection))
             {
                 cmd.Parameters.AddWithValue("@cc", empleadoInfo.cc);
@@ -40,7 +39,7 @@ namespace Multicinex.Classes.Empleado
                 cmd.Parameters.AddWithValue("@nombre_sucursal", empleadoInfo.nombreSucursal);
                 cmd.ExecuteNonQuery();
             }
-            using (var cmd = new SqlCommand("INSERT INTO [WIN-B28AMM5IUBR].MulticinexSur.dbo.EMPLEADO_SUELDO VALUES (@cc,@sueldo, @fecha_contratacion)", connection))
+            using (var cmd = new SqlCommand("INSERT INTO ["+ Connection.getSurServerName() +"].MulticinexSur.dbo.EMPLEADO_SUELDO VALUES (@cc,@sueldo, @fecha_contratacion)", connection))
             {
                 cmd.Parameters.AddWithValue("@cc", empleadoInfo.cc);
                 cmd.Parameters.AddWithValue("@sueldo", empleadoInfo.sueldo);
@@ -56,7 +55,6 @@ namespace Multicinex.Classes.Empleado
             {
                 using SqlConnection connection = new SqlConnection(_connectionString);
                 connection.Open();
-                new SqlCommand("Set xact_abort on", connection).ExecuteNonQuery();
                 using SqlCommand command = connection.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = "UPDATE V_EMPLEADO_INFO SET nombre = @nombre, apellido = @apellido WHERE CC = @cc and NOMBRE_SUCURSAL= @nombreSucursal";
@@ -73,10 +71,9 @@ namespace Multicinex.Classes.Empleado
         {
             using var connection = new SqlConnection(_connectionString);
             connection.Open();
-            new SqlCommand("Set xact_abort on", connection).ExecuteNonQuery();
             using SqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.Text;
-            command.CommandText = "EXECUTE [WIN-B28AMM5IUBR].MulticinexSur.dbo.SPEliminarEmpleado @cc;";
+            command.CommandText = "EXECUTE ["+ Connection.getSurServerName() +"].MulticinexSur.dbo.SPEliminarEmpleado @cc;";
             command.Parameters.AddWithValue("@cc", empleadoCC);
             var result = 0;
             try

@@ -38,7 +38,7 @@ namespace Multicinex.GUI
             {
                 MessageBox.Show("No se pudo añadir la pelicula");
             }
-            
+
         }
 
         private void vaciarCampos()
@@ -135,11 +135,27 @@ namespace Multicinex.GUI
         private void siticoneButton2_Click_1(object sender, EventArgs e)
         {
             siticoneDataGridView2.Rows.Clear();
-            foreach (Estadisticas item in EstadisticasMapper.ConsultarEstadisticas())
+            if (cbSucursal.Text=="Quito-Norte")
             {
-                siticoneDataGridView2.Rows.Add(item.nombrePelicula, item.cantidadBoletos);
+                foreach (Estadisticas item in EstadisticasMapper.ConsultarEstadisticasNorte())
+                {
+                    siticoneDataGridView2.Rows.Add(item.nombrePelicula, item.cantidadBoletos);
+                }
             }
+            else
+            {
+                foreach (Estadisticas item in EstadisticasMapper.ConsultarEstadisticasSur())
+                {
+                    siticoneDataGridView2.Rows.Add(item.nombrePelicula, item.cantidadBoletos);
+                }
+            }
+
+        }
+
+        private void siticoneHtmlLabel8_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
-    
+

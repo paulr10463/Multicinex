@@ -47,7 +47,6 @@ namespace Multicinex.Classes.Pelicula
             // Conexión a BD
             using var connection = new SqlConnection(_connectionString);
             connection.Open();
-            SqlCommand command = new SqlCommand("Set xact_abort on", connection);
             using (var cmd = new SqlCommand("INSERT INTO PELICULA (codigo_pelicula, titulo, duracion, anio, sinopsis,nombre_director, apellido_director) VALUES (@codigo_pelicula, @titulo, @duracion, @anio, @sinopsis, @nombre_director, @apellido_director)", connection))
             {
                 cmd.Parameters.AddWithValue("@codigo_pelicula", pelicula.codigoPelicula);

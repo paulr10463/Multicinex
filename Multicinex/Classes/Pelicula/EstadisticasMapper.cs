@@ -12,14 +12,14 @@ namespace Multicinex.Classes.Pelicula
     {
         private static readonly string _connectionString = Connection.getConnectionString();
 
-        public static List<Estadisticas> ConsultarEstadisticas()
+        public static List<Estadisticas> ConsultarEstadisticasNorte()
         {
             List<Estadisticas> estadisticas = new List<Estadisticas>();
             SqlConnection connection = new SqlConnection(_connectionString);
             {
                 connection.Open();
                 new SqlCommand("Set xact_abort on", connection);
-                SqlCommand command = new SqlCommand("EXECUTE [WIN-EB62IOPOT65].MulticinexNorte.dbo.SPBoletosVendidosPorPelicula", connection);
+                SqlCommand command = new SqlCommand("EXECUTE ["+ Connection.getNorteServerName() +"].MulticinexNorte.dbo.SPBoletosVendidosPorPelicula", connection);
                 SqlDataReader reader = command.ExecuteReader();
                 {
                     while (reader.Read())
@@ -30,5 +30,25 @@ namespace Multicinex.Classes.Pelicula
             }
             return estadisticas;
         }
+
+        public static List<Estadisticas> ConsultarEstadisticasSur()
+        {
+            List<Estadisticas> estadisticas = new List<Estadisticas>();
+            SqlConnection connection = new SqlConnection(_connectionString);
+            {
+                connection.Open();
+                new SqlCommand("Set xact_abort on", connection);
+                SqlCommand command = new SqlCommand("EXECUTE [" + Connection.getSurServerName() + "].MulticinexSur.dbo.SPBoletosVendidosPorPelicula", connection);
+                SqlDataReader reader = command.ExecuteReader();
+                {
+                    while (reader.Read())
+                    {
+                        estadisticas.Add(new Estadisticas(reader.GetString(0), reader.GetInt32(1)));
+                    }
+                }
+            }
+            return estadisticas;
+        }
+
     }
 }

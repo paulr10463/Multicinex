@@ -19,7 +19,7 @@ namespace Multicinex.Classes.Butaca
             SqlConnection connection = new SqlConnection(_connectionString);
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand("SELECT * FROM BUTACA_SUR;", connection);
+                SqlCommand command = new SqlCommand("SELECT * FROM V_BUTACA;", connection);
                 SqlDataReader reader = command.ExecuteReader();
                 {
                     while (reader.Read())
@@ -36,7 +36,7 @@ namespace Multicinex.Classes.Butaca
             SqlConnection connection = new SqlConnection(_connectionString);
             connection.Open();
 
-            using (var cmd = new SqlCommand("INSERT INTO BUTACA_SUR (fila, columna, nombre_sucursal, codigo_sala) values (@fila, @columna, @nombre_sucursal, @codigo_sala)", connection))
+            using (var cmd = new SqlCommand("INSERT INTO V_BUTACA (fila, columna, nombre_sucursal, codigo_sala) values (@fila, @columna, @nombre_sucursal, @codigo_sala)", connection))
             {
                 cmd.Parameters.AddWithValue("@fila", butaca.fila);
                 cmd.Parameters.AddWithValue("@columna", butaca.columna);
@@ -73,7 +73,7 @@ namespace Multicinex.Classes.Butaca
             connection.Open();
             await using SqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.Text;
-            command.CommandText = "DELETE FROM BUTACA_SUR WHERE FILA = @fila AND COLUMNA = @columna AND NOMBRE_SUCURSAL =  @nombre_sucursal, CODIGO_SALA = @codigo_sala";
+            command.CommandText = "DELETE FROM V_BUTACA WHERE FILA = @fila AND COLUMNA = @columna AND NOMBRE_SUCURSAL =  @nombre_sucursal AND CODIGO_SALA = @codigo_sala";
             command.Parameters.AddWithValue("@fila", butaca.fila);
             command.Parameters.AddWithValue("@columna", butaca.columna);
             command.Parameters.AddWithValue("@nombre_sucursal", butaca.nombreSucursal);

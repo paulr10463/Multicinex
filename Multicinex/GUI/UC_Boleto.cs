@@ -81,7 +81,7 @@ namespace Multicinex.GUI
                     DataRow row;
 
 
-                    for (int i = 1; i < filas; i++)
+                    for (int i = 1; i <= filas; i++)
                     {
                         row = table.NewRow();
                         table.Rows.Add(row);
@@ -129,13 +129,14 @@ namespace Multicinex.GUI
             try
             {
                 BoletoMapper.IngresarBoleto(boletoVenta);
-                MessageBox.Show(boletoVenta.ToString());
+                //MessageBox.Show(boletoVenta.ToString());
                 vaciarCampos();
                 llenarTablaBoleto(BoletoMapper.ConsultarBoleto());
+                MessageBox.Show("Boleto añadido con exito");
             }
             catch(Exception ex)
             {
-                MessageBox.Show("No se pudo añadir la pelicula" + ex.Message);
+                MessageBox.Show("No se pudo añadir el boleto" + ex.Message);
             }
             
         }

@@ -19,7 +19,7 @@ namespace Multicinex.Classes.Empleado
             SqlConnection connection = new SqlConnection(_connectionString);
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand("SELECT * FROM [WIN-B28AMM5IUBR].MulticinexSur.dbo.EMPLEADO_SUELDO", connection);
+                SqlCommand command = new SqlCommand("SELECT * FROM ["+ Connection.getSurServerName() +"].MulticinexSur.dbo.EMPLEADO_SUELDO", connection);
                 SqlDataReader reader = command.ExecuteReader();
                 {
                     while (reader.Read())
@@ -39,7 +39,7 @@ namespace Multicinex.Classes.Empleado
             using var connection = new SqlConnection(_connectionString);
             connection.Open();
 
-            using (var cmd = new SqlCommand("INSERT INTO [WIN-B28AMM5IUBR].MulticinexSur.dbo.EMPLEADO_SUELDO (cc, sueldo, fecha_contratacion) values (@cc, @sueldo, @fecha_contratacion);", connection))
+            using (var cmd = new SqlCommand("INSERT INTO ["+ Connection.getSurServerName() +"].MulticinexSur.dbo.EMPLEADO_SUELDO (cc, sueldo, fecha_contratacion) values (@cc, @sueldo, @fecha_contratacion);", connection))
             {
                 cmd.Parameters.AddWithValue("@cc", empleadoSueldo.cc);
                 cmd.Parameters.AddWithValue("@sueldo", empleadoSueldo.sueldo);
@@ -57,7 +57,7 @@ namespace Multicinex.Classes.Empleado
                 connection.Open();
                 using SqlCommand command = connection.CreateCommand();
                 command.CommandType = CommandType.Text;
-                command.CommandText = "UPDATE [WIN-B28AMM5IUBR].MulticinexSur.dbo.EMPLEADO_SUELDO SET sueldo = @sueldo, fecha_contratacion = @fecha_contratacion WHERE CC = @cc";
+                command.CommandText = "UPDATE ["+ Connection.getSurServerName() +"].MulticinexSur.dbo.EMPLEADO_SUELDO SET sueldo = @sueldo, fecha_contratacion = @fecha_contratacion WHERE CC = @cc";
                 command.Parameters.AddWithValue("@cc", empleadoSueldo.cc);
                 command.Parameters.AddWithValue("@sueldo", empleadoSueldo.sueldo);
                 command.Parameters.AddWithValue("@fecha_contratacion", empleadoSueldo.fechaContratacion);
@@ -73,7 +73,7 @@ namespace Multicinex.Classes.Empleado
             connection.Open();
             using SqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.Text;
-            command.CommandText = "EXECUTE [WIN-B28AMM5IUBR].MulticinexSur.dbo.SPEliminarEmpleado @cc;";
+            command.CommandText = "EXECUTE ["+ Connection.getSurServerName() +"].MulticinexSur.dbo.SPEliminarEmpleado @cc;";
             command.Parameters.AddWithValue("@cc", cc);
             var result = 0;
             try

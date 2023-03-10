@@ -57,7 +57,7 @@ namespace Multicinex.GUI
         {
             try
             {
-                BoletoMapper.EliminarBoleto(tbCodigoBoleto.Text);
+                BoletoMapper.EliminarBoleto(tbCodigoBoleto.Text, cbSucursal.Text);
                 MessageBox.Show("Boleto eliminado con exito");
                 this.Close();
             }

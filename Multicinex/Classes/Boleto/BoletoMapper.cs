@@ -37,7 +37,7 @@ namespace Multicinex.Classes.Boleto
             SqlConnection connection = new SqlConnection(_connectionString);
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand("SELECT * FROM BOLETO_SUR WHERE CODIGO_FUNCION = '" + codFuncion + "'", connection);
+                SqlCommand command = new SqlCommand("SELECT * FROM V_BOLETO WHERE CODIGO_FUNCION = '" + codFuncion + "'", connection);
                 SqlDataReader reader = command.ExecuteReader();
                 {
                     while (reader.Read())
@@ -53,7 +53,6 @@ namespace Multicinex.Classes.Boleto
         {
             SqlConnection connection = new SqlConnection(_connectionString);
             connection.Open();
-            new SqlCommand("Set xact_abort on", connection).ExecuteNonQuery();
             using (var cmd = new SqlCommand("INSERT INTO V_BOLETO values (@codigo_boleto, @fila, @columna, @nombre_sucursal, @codigo_sala, @codigo_funcion, @fecha_emision, @hora_emision)", connection))
             {
                 cmd.Parameters.AddWithValue("@codigo_boleto", boleto.codigoBoleto);
@@ -75,7 +74,6 @@ namespace Multicinex.Classes.Boleto
             {
                 using SqlConnection connection = new SqlConnection(_connectionString);
                 connection.Open();
-                new SqlCommand("Set xact_abort on", connection).ExecuteNonQuery();
                 using SqlCommand command = connection.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = "UPDATE V_BOLETO SET FILA = @fila, COLUMNA = @columna, FECHA_EMISION = @fecha_emision, HORA_EMISION = @hora_emision, CODIGO_SALA = @codigo_sala, CODIGO_FUNCION = @codigo_Funcion WHERE CODIGO_BOLETO = @codigo_Boleto AND NOMBRE_SUCURSAL = @nombre_Sucursal";
@@ -92,15 +90,15 @@ namespace Multicinex.Classes.Boleto
             return result > 0;
         }
 
-        public static bool EliminarBoleto(string codigoBoleto)
+        public static bool EliminarBoleto(string codigoBoleto, string nombreSucursal)
         {
             using var connection = new SqlConnection(_connectionString);
             connection.Open();
-            new SqlCommand("Set xact_abort on", connection).ExecuteNonQuery();
             using SqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.Text;
-            command.CommandText = "DELETE FROM V_BOLETO WHERE CODIGO_BOLETO = @codigo_boleto";
+            command.CommandText = "DELETE FROM V_BOLETO WHERE NOMBRE_SUCURSAL =  @nombre_sucursal AND CODIGO_BOLETO = @codigo_boleto";
             command.Parameters.AddWithValue("@codigo_boleto", codigoBoleto);
+            command.Parameters.AddWithValue("@nombre_sucursal", nombreSucursal);
 
             var result = 0;
             try
